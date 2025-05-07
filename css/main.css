@@ -1,0 +1,221 @@
+@import url(./colors.css);
+@import url(./fonts.css);
+@import url(./var.css);
+
+:root {
+  /* --sidebar */
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Ubuntu';
+  font-weight: normal;
+  color: var(--text-black);
+}
+
+a {
+  color: var(--text-blue);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--table-striped);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.button--flat {
+  box-shadow: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background-color: lightskyblue;
+  padding: 0.5em;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+}
+
+.header .profile button {
+  background-image: url(../images/down.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center right;
+  padding-right: 2em;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.footer {
+  background-color: forestgreen;
+  padding: 0.5em;
+}
+
+.sidebar {
+  background-color: plum;
+  width: 10%;
+  overflow: auto;
+  padding: 0.5em;
+  position: relative;
+  transition: 0.3s width ease;
+  overflow-x: hidden;
+}
+
+.sidebar--hidden {
+  width: 2em;
+}
+
+.sidebar--hidden .sidebar__content {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sidebar ul li {
+  line-height: 1.5em;
+}
+
+.sidebar button.toggle {
+  width: 2em;
+  height: 2em;
+  background-image: url(../images/left.svg);
+  border-radius: 50%;
+  background-size: contain;
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  background-color: plum;
+  border: 1px solid white;
+  transition: 0.3s all ease;
+}
+
+.sidebar--hidden button.toggle {
+  transform: rotate(180deg);
+}
+
+.sidebar__content ul li {
+  /* padding: 0.5em; */
+  border-radius: 0.5em;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar__content ul li a {
+  text-decoration: none;
+  color: var(--text-black);
+  display: block;
+  padding: 1em;
+}
+
+.content {
+  background-color: wheat;
+  flex: 1; /* Take up remaining space */
+  overflow: auto; /* Allow scrolling if content overflows */
+  padding: 0.5em;
+}
+
+.messages {
+  background-color: tomato;
+  width: 300px;
+  padding: 1em;
+  position: absolute;
+  bottom: 3em;
+  right: 3em;
+  border-radius: 0.5em;
+  box-shadow: var(--shadow-md);
+}
+
+.messages button.close {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: -1em;
+  right: -1em;
+  border-radius: 50%;
+  background-image: url(../images/close.svg);
+  background-size: contain;
+}
+
+.messages--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 0.3s all ease;
+}
+
+.profile {
+  position: relative;
+}
+
+.profile--warning::before {
+  font-size: 0.75em;
+  content: '';
+  display: block;
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+  background-color: tomato;
+  position: absolute;
+  top: 25%;
+  left: -1em;
+  animation: pulse 1s ease infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.5);
+  }
+}
+
+.profile__content {
+  position: absolute;
+  width: 20em;
+  border-radius: 0.5em;
+  right: 0;
+  visibility: hidden;
+  height: 0;
+  background-color: white;
+  padding: 1em;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transition: 0.3s opacity ease;
+}
+
+.profile__content ul li {
+  line-height: 2em;
+}
+
+.profile__content--show {
+  visibility: visible;
+  height: inherit;
+  opacity: 1;
+}
+
+.messages h2 {
+  margin-bottom: 0.5em;
+}

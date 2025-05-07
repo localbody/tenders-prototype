@@ -1,0 +1,6 @@
+:root {
+  --shadow-color: rgba(34, 60, 80, 0.2);
+  --shadow-sm: 0px 2px 4px 0px var(--shadow-color);
+  --shadow-md: 0px 4px 8px 0px var(--shadow-color);
+  --shadow-lg: 0px 8px 16px 0px var(--shadow-color);
+}
