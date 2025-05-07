@@ -1,4 +1,23 @@
 const onLoaded = () => {
+  const onClickDocument = function (event) {
+    console.log(
+      event.target,
+      event.target.classList,
+      event.target.closest('.show'),
+    )
+
+    if (
+      !event.target.classList.contains('dropdown-toggle') &&
+      !event.target.closest('.show')
+    ) {
+      document.querySelectorAll('.show').forEach((item) => {
+        item.classList.remove('show')
+      })
+    }
+  }
+
+  document.addEventListener('click', onClickDocument)
+
   //
   const buttonSidebarToggle = document.querySelector('.sidebar button.toggle')
   const sidebar = document.querySelector('.sidebar')
@@ -21,7 +40,8 @@ const onLoaded = () => {
   const profileButton = document.querySelector('.profile button')
 
   const onClickProfileButton = () => {
-    profileContent.classList.toggle('profile__content--show')
+    profileButton.classList.toggle('show')
+    profileContent.classList.toggle('show')
   }
 
   profileButton.addEventListener('click', onClickProfileButton)

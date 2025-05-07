@@ -210,7 +210,7 @@ button {
   line-height: 2em;
 }
 
-.profile__content--show {
+.profile__content.show {
   visibility: visible;
   height: inherit;
   opacity: 1;
