@@ -13,6 +13,8 @@ body {
   font-family: 'Ubuntu';
   font-weight: normal;
   color: var(--text-black);
+  line-height: 1.5em;
+  background-color: var(--white);
 }
 
 a {
@@ -34,6 +36,26 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
+.button--info {
+  position: relative;
+}
+
+.button--info::after {
+  content: 'ⓘ';
+  font-size: 0.75em;
+  position: absolute;
+  top: -0.25em;
+  right: -1em;
+  color: var(--text-white);
+  background-color: var(--bg-green);
+  border-radius: 2em;
+  padding: 0.1em;
+}
+
+.text--white {
+  color: var(--text-white);
+}
+
 .button--flat {
   box-shadow: none;
 }
@@ -45,10 +67,11 @@ button {
 }
 
 .header {
-  background-color: lightskyblue;
+  background-color: var(--bg-header);
   padding: 0.5em;
   display: grid;
   grid-template-columns: 1fr max-content;
+  color: white;
 }
 
 .header .profile button {
@@ -59,20 +82,34 @@ button {
   padding-right: 2em;
 }
 
-.body {
+.header .title {
+  font-size: 1.25em;
+}
+
+.header .title a {
+  color: var(--text-white);
+  text-decoration: none;
+}
+
+.main .body {
   flex: 1;
   display: flex;
   overflow: hidden;
+  color: var(--text);
 }
 
 .footer {
-  background-color: forestgreen;
   padding: 0.5em;
+  background-color: var(--bg-footer);
+  color: var(--text-second);
 }
 
 .sidebar {
-  background-color: plum;
+  background-color: var(--bg-sidebar);
   width: 10%;
+  color: var(--text-second);
+
+  min-width: 20em;
   overflow: auto;
   padding: 0.5em;
   position: relative;
@@ -82,28 +119,24 @@ button {
 
 .sidebar--hidden {
   width: 2em;
+  min-width: initial;
+  cursor: pointer;
 }
 
 .sidebar--hidden .sidebar__content {
   visibility: hidden;
-  pointer-events: none;
-}
-
-.sidebar ul li {
-  line-height: 1.5em;
 }
 
 .sidebar button.toggle {
   width: 2em;
   height: 2em;
+  background-color: var(--bg-white);
   background-image: url(../images/left.svg);
   border-radius: 50%;
   background-size: contain;
   position: absolute;
   bottom: 0.5em;
   right: 0.5em;
-  background-color: plum;
-  border: 1px solid white;
   transition: 0.3s all ease;
 }
 
@@ -111,28 +144,32 @@ button {
   transform: rotate(180deg);
 }
 
+.sidebar__content ul {
+  display: flex;
+  flex-direction: column;
+  /* gap: 1em; */
+}
+
 .sidebar__content ul li {
-  /* padding: 0.5em; */
-  border-radius: 0.5em;
-  box-shadow: var(--shadow-sm);
-}
-
-.sidebar__content ul li a {
-  text-decoration: none;
-  color: var(--text-black);
-  display: block;
-  padding: 1em;
-}
-
-.content {
-  background-color: wheat;
-  flex: 1; /* Take up remaining space */
-  overflow: auto; /* Allow scrolling if content overflows */
   padding: 0.5em;
 }
 
+.sidebar__content ul li.active {
+  background-color: var(--bg-yellow);
+  color: var(--text);
+  font-size: 1.25em;
+  border-radius: 0.5em;
+}
+
+.main .content {
+  background-color: var(--bg-content);
+  flex: 1; /* Take up remaining space */
+  overflow: auto; /* Allow scrolling if content overflows */
+  padding: 1em;
+}
+
 .messages {
-  background-color: tomato;
+  background-color: var(--bg-white);
   width: 300px;
   padding: 1em;
   position: absolute;
@@ -142,15 +179,18 @@ button {
   box-shadow: var(--shadow-md);
 }
 
+.popup button.close,
 .messages button.close {
   width: 2em;
   height: 2em;
   position: absolute;
   top: -1em;
   right: -1em;
+  background-color: var(--bg-white);
   border-radius: 50%;
   background-image: url(../images/close.svg);
   background-size: contain;
+  box-shadow: var(--shadow-sm);
 }
 
 .messages--hidden {
@@ -204,6 +244,7 @@ button {
   box-shadow: var(--shadow-sm);
   opacity: 0;
   transition: 0.3s opacity ease;
+  color: var(--text-second);
 }
 
 .profile__content ul li {
@@ -218,4 +259,50 @@ button {
 
 .messages h2 {
   margin-bottom: 0.5em;
+}
+
+.popup {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: var(--popup-background-body);
+  z-index: 100;
+}
+
+.popup--show {
+  visibility: visible;
+  pointer-events: initial;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  opacity: 1;
+  transition: 0.3s opacity ease;
+}
+
+.popup .body {
+  position: relative;
+}
+
+.popup .content {
+  background-color: var(--bg-content);
+  padding: 2em;
+  border-radius: 1em;
+  box-shadow: var(--shadow-md);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+#step-duration {
+  /* font-size: 1.25em; */
+  /* font-weight: 800; */
+  background-color: wheat;
+  padding: 0.25em 0.75em;
+  border-radius: 1em;
 }

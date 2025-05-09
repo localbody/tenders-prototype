@@ -10,30 +10,34 @@
   </head>
 
   <body>
+    <div class="popup">
+      <div class="body">
+        <button class="close"></button>
+        <div class="content"></div>
+      </div>
+    </div>
+
     <div class="main">
       <div class="header">
         <span class="title">
-            Заголовок
+          <button class="button--info button--flat text--white popup-show" data-popup="1">
+            Задача: "Изучение Заявки (запрос для рассылки)"
+          </button>
         </span>
         <div class="profile profile--warning">
-            <button class="button--flat dropdown-toggle show">
-                Иванов Иван
-            </button>
-            <div class="profile__content show">
-
-                <div>
-                    <ul>
-                        <li>роль: менеджер</li>
-                        <li>активные задачи: <a href="">10</a></li>
-                        <li>неотложные задачи: <a href="">1</a></li>
-                        <li><hr></li>
-                        <li><a href="">Сменить пароль</a></li> 
-                        <li><a href="">Завершить работу</a></li> 
-                    </ul>
-                </div>
-
-
+          <button class="button--flat dropdown-toggle">Иванов Иван</button>
+          <div class="profile__content">
+            <div>
+              <ul>
+                <li>роль: менеджер</li>
+                <li>активные задачи: <a href="">10</a></li>
+                <li>неотложные задачи: <a href="">1</a></li>
+                <li><hr /></li>
+                <li><a href="">Сменить пароль</a></li>
+                <li><a href="">Завершить работу</a></li>
+              </ul>
             </div>
+          </div>
         </div>
       </div>
 
@@ -41,35 +45,34 @@
         <div class="sidebar">
           <button class="toggle"></button>
           <div class="sidebar__content">
-            <h3>Сайдбар</h3>
-            <br />
             <ul>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
+              <li>операция 1</li>
+              <li>операция 2</li>
+              <li class="active">операция 3</li>
+              <li>операция 4</li>
+              <li>операция 5</li>
+              <li>операция 6</li>
+              <li>операция 7</li>
+              <li>операция 8</li>
+              <li>операция 9</li>
+              <li>операция 10</li>
             </ul>
           </div>
         </div>
-        <div class="content">Содержимое
-
-
+        <div class="content">
+            <h1>Операция 3</h1>
+            <h2>Здесь будет форма для текущей</h2>
+          
         </div>
       </div>
 
-      <div class="footer">Подвал</div>
+      <div class="footer">
+        Продолжительность работы <span id="step-duration">00:00</span>
+      </div>
     </div>
 
-    <div class="messages">
-      <h2>
-        Сообщение
-      </h2>
+    <div class="messages messages--hidden">
+      <h2>Сообщение</h2>
       <p>Содержимое сообщения 1</p>
       <p>Содержимое сообщения 2</p>
       <p>Содержимое сообщения 3</p>
