@@ -299,10 +299,26 @@ button {
   overflow: scroll;
 }
 
-#step-duration {
+.durations {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.step-duration {
   /* font-size: 1.25em; */
   /* font-weight: 800; */
   background-color: wheat;
   padding: 0.25em 0.75em;
   border-radius: 1em;
+  white-space: nowrap;
+}
+
+.next-task {
+  padding: 1em 2em;
+  background-color: #3498db;
+  border-radius: 0.5em;
+  color: var(--text-white);
+  float: right;
 }
