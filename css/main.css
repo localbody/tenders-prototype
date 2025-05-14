@@ -2,10 +2,6 @@
 @import url(./fonts.css);
 @import url(./var.css);
 
-:root {
-  /* --sidebar */
-}
-
 html,
 body {
   height: 100%;
@@ -211,7 +207,7 @@ button {
   height: 1em;
   width: 1em;
   border-radius: 1em;
-  background-color: tomato;
+  background-color: var(--bg-red);
   position: absolute;
   top: 25%;
   left: -1em;
@@ -321,4 +317,8 @@ button {
   border-radius: 0.5em;
   color: var(--text-white);
   float: right;
+}
+
+.text--red {
+  color: var(--text-red);
 }
