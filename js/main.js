@@ -31,7 +31,7 @@ const onLoaded = () => {
            </ul>`,
   }
 
-  const spanStepDuration = document.querySelector('span#step-duration')
+  // const spanStepDuration = document.querySelector('span#step-duration')
 
   const startTimeMinutes = parseInt(
     window.localStorage.getItem('startTime') || 0,
@@ -41,13 +41,13 @@ const onLoaded = () => {
 
   let timeDurationMinutes = startTimeMinutes
 
-  spanStepDuration.textContent = formatMinutesToHHMM(timeDurationMinutes)
+  // spanStepDuration.textContent = formatMinutesToHHMM(timeDurationMinutes)
 
   const onTimer = () => {
     timeDurationMinutes += 1
     window.localStorage.setItem('startTime', timeDurationMinutes)
 
-    spanStepDuration.textContent = formatMinutesToHHMM(timeDurationMinutes)
+    // spanStepDuration.textContent = formatMinutesToHHMM(timeDurationMinutes)
   }
 
   const continueStepDuration = () => {
