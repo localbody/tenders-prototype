@@ -1,67 +1,32 @@
-/* pastels palettes */
-/* Hex Codes: #79addc // #ffc09f // #ffee93 // #fcf5c7 // #adf7b6 */
-
-/* Hex Codes: #61f4de // #65cbe9 // #68b6ef // #6c8dfa // #6e78ff */
-
-/* Hex Codes: #edf2fb // #d7e3fc // #ccdbfd // #c1d3fe // #abc4ff */
-
-/* Hex Codes: #809bce // #95b8d1 // #b8e0d2 // #d6eadf // #eac4d5 */
-
-/* #1984c5 // #22a7f0 // #63bff0 // #a7d5ed // #e2e2e2 // #e1a692 // #de6e56 // #e14b31 // #c23728 */
-
-/* #f46a9b // #ef9b20 // #edbf33 // #ede15b // #bdcf32 // #87bc45 // #27aeef // #b33dc6 */
-
-/* :root {
-  --olo-blue: #04284c;
-
-  --table-header: #809bce;
-  --table-striped: #d6eadf;
-  --blue: #2962ff;
-  --red: #f44336;
-  --lime: #cddc39;
-  --yellow: #ffd600;
-  --green: #4caf50;
-  --grey: #bdbdbd;
-  --darkgrey: #424242;
-  --lightgrey: #e0e0e0;
-  --black: #111111;
-  --white: #ffffff;
-  --shadow: rgba(34, 60, 80, 0.2);
-} */
-
 :root {
-  --energo-blue: #04284c;
-  --energo-lightblue: rgb(240, 248, 255, 0.5);
-  --energo-wheat: wheat;
+  /* --bg-body: gainsboro; */
+  --bg-body: #e4e4ef;
 
-  /* --background-body: gainsboro; */
-  --background-body: #e4e4ef;
+  /* --bg-blue-alpha: rgba(197, 220, 250, 0.5); */
+  --bg-blue-alpha: #e2edfc;
+  /* --bg-green-alpha: rgba(197, 242, 199, 0.5); */
+  --bg-green-alpha: #e2f8e3;
+  /* --bg-red-alpha: rgba(252, 208, 207, 0.5); */
+  --bg-red-alpha: #fde7e7;
+  /* --bg-yellow-alpha: rgba(251, 229, 201, 0.5); */
+  --bg-yellow-alpha: #fdf2e4;
+  /* --bg-grey-alpha: rgba(224, 224, 224, 0.5); */
+  --bg-grey-alpha: #efefef;
+  /* --bg-black-alpha: rgba(17, 17, 17, 0.5); */
+  --bg-black-alpha: #888888;
 
-  /* --background-blue-alpha: rgba(197, 220, 250, 0.5); */
-  --background-blue-alpha: #e2edfc;
-  /* --background-green-alpha: rgba(197, 242, 199, 0.5); */
-  --background-green-alpha: #e2f8e3;
-  /* --background-red-alpha: rgba(252, 208, 207, 0.5); */
-  --background-red-alpha: #fde7e7;
-  /* --background-yellow-alpha: rgba(251, 229, 201, 0.5); */
-  --background-yellow-alpha: #fdf2e4;
-  /* --background-grey-alpha: rgba(224, 224, 224, 0.5); */
-  --background-grey-alpha: #efefef;
-  /* --background-black-alpha: rgba(17, 17, 17, 0.5); */
-  --background-black-alpha: #888888;
+  --bg-grey-dark: #616161;
+  --bg-grey-medium: #818181;
+  --bg-grey-light: #e0e0e0;
 
-  --background-grey-dark: #616161;
-  --background-grey-medium: #818181;
-  --background-grey-light: #e0e0e0;
-
-  --background-black: #111111;
-  --background-blue: #0f56b3;
-  --background-violet: #817cff;
-  --background-green: #1f8b24;
-  --background-brown: #7f4c0a;
-  --background-red: #da100b;
-  --background-yellow: #fbe5c9;
-  --background-white: #ffffff;
+  --bg-black: #111111;
+  --bg-blue: #0f56b3;
+  --bg-violet: #817cff;
+  --bg-green: #1f8b24;
+  --bg-brown: #7f4c0a;
+  --bg-red: #da100b;
+  --bg-yellow: #fbe5c9;
+  --bg-white: #ffffff;
 
   --text-black: #111111;
   --text-white: #ffffff;
@@ -91,6 +56,24 @@
 
   --grafana-background: #1f2128;
   --grafana-label-gray: #e0e0e0;
+
+  --text: #333333;
+  --text-second: #7f8c8d;
+  --text-link: #3498db;
+
+  /* --text-color:#4D4D4D; */
+
+  --bg-header: #2980b9;
+  --bg-sidebar: #2c3e50;
+  --bg-content: #f5f7fa;
+  --bg-footer: #34495e;
+
+  /*
+  --bg-header: #ecf0f1;
+  --bg-sidebar: #2c3e50;
+  --bg-content: #ffffff;
+  --bg-footer: #34495e;
+*/
 }
 
 /* shadow-blue: filter: drop-shadow(0px 1.09009px 2.18018px rgba(15, 86, 179, 0.18)) drop-shadow(0px 2.18018px 4.36036px rgba(15, 86, 179, 0.18)); */

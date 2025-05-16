@@ -10,30 +10,37 @@
   </head>
 
   <body>
+    <div class="popup">
+      <div class="body">
+        <button class="close"></button>
+        <div class="content"></div>
+      </div>
+    </div>
+
     <div class="main">
       <div class="header">
         <span class="title">
-            Заголовок
+          <button
+            class="button--info button--flat text--white popup-show"
+            data-popup="1"
+          >
+            Задача: "Изучение Заявки (запрос для рассылки)"
+          </button>
         </span>
         <div class="profile profile--warning">
-            <button class="button--flat dropdown-toggle show">
-                Иванов Иван
-            </button>
-            <div class="profile__content show">
-
-                <div>
-                    <ul>
-                        <li>роль: менеджер</li>
-                        <li>активные задачи: <a href="">10</a></li>
-                        <li>неотложные задачи: <a href="">1</a></li>
-                        <li><hr></li>
-                        <li><a href="">Сменить пароль</a></li> 
-                        <li><a href="">Завершить работу</a></li> 
-                    </ul>
-                </div>
-
-
+          <button class="button--flat dropdown-toggle">Иванов Иван</button>
+          <div class="profile__content">
+            <div>
+              <ul>
+                <li>роль: менеджер</li>
+                <li>активные задачи: <a href="">10</a></li>
+                <li>неотложные задачи: <a href="">1</a></li>
+                <li><hr /></li>
+                <li><a href="">Сменить пароль</a></li>
+                <li><a href="">Завершить работу</a></li>
+              </ul>
             </div>
+          </div>
         </div>
       </div>
 
@@ -41,35 +48,66 @@
         <div class="sidebar">
           <button class="toggle"></button>
           <div class="sidebar__content">
-            <h3>Сайдбар</h3>
-            <br />
             <ul>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
-              <li><a href="">Пункт сайдбара</a></li>
+              <li>О Задаче</li>
+              <li class="active">Данные для выполнения</li>
+              <li>Выполните Операции</li>
+              <li>Введите Результат Задачи</li>
+              <li>Инструменты для Задачи</li>
+              <li>Шаблоны для Задачи</li>
+              <li>Документы для Задачи</li>
+              <li>Знания</li>
+              <li>Не выполнили Задачу?</li>
+              <li>Ваши предложения</li>
+              <li>Задача Завершена</li>
             </ul>
           </div>
         </div>
-        <div class="content">Содержимое
-
-
+        <div class="content">
+          <h1>Данные для выполнения</h1>
+          <h2>Здесь будет форма для текущей операции</h2>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <hr />
+          <button class="next-task">Далее</button>
         </div>
       </div>
 
-      <div class="footer">Подвал</div>
+      <div class="footer">
+        <div class="durations">
+          <div>
+            <span>Осталось времени</span>
+            <span id="countdown" class="step-duration"
+              >11 дней 08 часов 15 минут</span
+            >
+          </div>
+          <div>
+            <span>Окончание задачи</span>
+            <span id="datetime-final" class="step-duration"
+              >01.12.2025 23:59</span
+            >
+          </div>
+          <div>
+            <span>Мяч на той стороне до</span>
+            <span id="on-that-side" class="step-duration text--red"
+              >30.10.2025 23:59</span
+            >
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="messages">
-      <h2>
-        Сообщение
-      </h2>
+    <div class="messages messages--hidden">
+      <h2>Сообщение</h2>
       <p>Содержимое сообщения 1</p>
       <p>Содержимое сообщения 2</p>
       <p>Содержимое сообщения 3</p>
