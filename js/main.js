@@ -1,11 +1,5 @@
 const onLoaded = () => {
   const onClickDocument = function (event) {
-    console.log(
-      event.target,
-      event.target.classList,
-      event.target.closest('.show'),
-    )
-
     if (
       !event.target.classList.contains('dropdown-toggle') &&
       !event.target.closest('.show')
