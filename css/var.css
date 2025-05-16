@@ -4,3 +4,11 @@
   --shadow-md: 0px 4px 8px 0px var(--shadow-color);
   --shadow-lg: 0px 8px 16px 0px var(--shadow-color);
 }
+
+.pl-1 {
+  padding-left: 1em;
+}
+
+.pl-2 {
+  padding-left: 2em;
+}
