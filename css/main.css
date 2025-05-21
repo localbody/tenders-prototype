@@ -196,7 +196,7 @@ button {
   color: var(--text);
   font-size: 1.25em;
   border-radius: 0.5em;
-  width: max-content;
+  width: fit-content;
 }
 
 .main .content {
@@ -204,6 +204,10 @@ button {
   flex: 1; /* Take up remaining space */
   overflow: auto; /* Allow scrolling if content overflows */
   padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .messages {
@@ -359,8 +363,41 @@ button {
   border-radius: 0.5em;
   color: var(--text-white);
   float: right;
+
+  width: fit-content;
+  height: fit-content;
+  align-self: flex-end;
+  justify-self: flex-end;
 }
 
 .text--red {
   color: var(--text-red);
+}
+
+ul.grid--striped {
+  list-style: none;
+  display: grid;
+  gap: 1em;
+}
+
+ul.grid--striped li {
+  padding: 1em 2em;
+  box-shadow: var(--shadow-sm);
+  background-color: white;
+
+  display: grid;
+  gap: 0.5em;
+}
+
+.row--result {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+input.text--result {
+  padding: 0.5em;
+  color: var(--text-green);
+  background-color: var(--bg-yellow-alpha);
+  border: 1px solid var(--border-black);
 }
