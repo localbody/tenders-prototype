@@ -1,5 +1,11 @@
+import { marked } from './marked.esm.js'
+
 const onLoaded = () => {
   //
+
+  console.log(
+    marked.parse('# Marked in the browser\n\nRendered by **marked**.'),
+  )
 
   const formatMinutesToHHMM = (minutes) => {
     const HH = (~~(minutes / 60)).toString().padStart(2, '0')
@@ -9,26 +15,18 @@ const onLoaded = () => {
   }
 
   const popupsData = {
-    1: `  <h2>Задача: "Изучение Заявки (запрос для рассылки)"</h2>
-          <ul>
-            <li>1.Прочтите и поймите Шаблон №А</li>
-            <li>2.Введите в Шаблон №Б имя товара</li>
-            <li>
-              3.Введите имя товара в Интернет-Браузер и находите Синонимы имени
-              товара
-            </li>
-            <li>4.Прочтите и поймите на 5-ти сайтах Синонимы имени</li>
-            <li>5.Выберите 3 Синонима по их рейтингу на сайтах</li>
-            <li>
-              6.Введите их в Шаблон №Б 7.Введите их и имя товара в Переводчик
-              Deep
-            </li>
-            <li>
-              7.Переведите каждый Синоним на язык страны Поиска (Шаблон №А)
-            </li>
-            <li>8.Внесите результаты перевода в Шаблон №В</li>
-            <li>9.Завершить Задачу</li>
-           </ul>`,
+    1: `
+## Задача: "Изучение Заявки (запрос для рассылки)"
+1. Прочтите и поймите Шаблон №А
+2. Введите в Шаблон №Б имя товара
+3. Введите имя товара в Интернет-Браузер и находите Синонимы имени товара
+4. Прочтите и поймите на 5-ти сайтах Синонимы имени
+5. Выберите 3 Синонима по их рейтингу на сайтах
+6. Введите их в Шаблон №Б 7.Введите их и имя товара в Переводчик Deep
+7. Переведите каждый Синоним на язык страны Поиска (Шаблон №А)
+8. Внесите результаты перевода в Шаблон №В
+9. Завершить Задачу
+`,
   }
 
   // const spanStepDuration = document.querySelector('span#step-duration')
@@ -65,7 +63,7 @@ const onLoaded = () => {
 
     const popupDataId = target.dataset.popup
 
-    popupContent.innerHTML = popupsData[popupDataId]
+    popupContent.innerHTML = marked.parse(popupsData[popupDataId])
 
     popup.classList.add('popup--show')
   }
