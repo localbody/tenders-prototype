@@ -64,52 +64,62 @@
         <div class="content">
           <!-- -->
 
-          <ul class="grid--striped">
-            <li>
+          <div class="block block--shadow">
+            <h2>
+              Найдите <b>3</b> синонима слова "<b>трактор</b>" и вставьте их в
+              поля ниже.
+            </h2>
+            <div class="result">
               <a
+                class="result__link"
                 href="https://sinonim.org/s/трактор"
                 onclick="openInNamedWindow(event, this.href)"
-                >синоним слова "<b>трактор</b>" на <b>sinonim.org</b></a
-              >
-              <span> cкопируйте <b>3 синонима</b> и вставьте в результат:</span>
-              <div class="row--result">
-                <span>результат поиска синонимов:</span>
-                <input class="text--result" type="text" />
-                <input class="text--result" type="text" />
-                <input class="text--result" type="text" />
+                >синонимы на <b>sinonim.org</b>
+              </a>
+
+              <div class="result__fields">
+                <input class="result__text" type="text" value="тягач" />
+                <input class="result__text" type="text" value="бульдозер" />
+                <input class="result__text" type="text" value="железный конь" />
               </div>
-            </li>
-            <li>
+            </div>
+
+            <div class="result">
               <a
+                class="result__link"
                 href="https://text.ru/synonym/трактор"
                 onclick="openInNamedWindow(event, this.href)"
-                >синоним слова "<b>трактор</b>" на <b>text.ru</b></a
-              ><span>
-                - скопируйте <b>3 синонима</b> и вставьте в результат:</span
+                >синонимы на <b>text.ru</b></a
               >
-              <div class="row--result">
-                <span>результат поиска синонимов:</span>
-                <input class="text--result" type="text" />
-                <input class="text--result" type="text" />
-                <input class="text--result" type="text" />
+              <div class="result__fields">
+                <input
+                  class="result__text"
+                  type="text"
+                  value="Стальной пахарь"
+                />
+                <input
+                  class="result__text"
+                  type="text"
+                  value="Степной богатырь"
+                />
+                <input class="result__text" type="text" />
               </div>
-            </li>
-            <li>
+            </div>
+
+            <div class="result">
               <a
+                class="result__link"
                 href="https://kartaslov.ru/синонимы-к-слову/трактор"
                 onclick="openInNamedWindow(event, this.href)"
-                >синоним слова "<b>трактор</b>" на <b>kartaslov.ru</b></a
-              ><span>
-                - скопируйте <b>3 синонима</b> и вставьте в результат:</span
+                >синонимы на <b>kartaslov.ru</b></a
               >
-              <div class="row--result">
-                <span>результат поиска синонимов:</span>
-                <input class="text--result" type="text" />
-                <input class="text--result" type="text" />
-                <input class="text--result" type="text" />
+              <div class="result__fields">
+                <input class="result__text" type="text" value="локомотив" />
+                <input class="result__text" type="text" />
+                <input class="result__text" type="text" />
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <button class="next-task">Далее</button>
         </div>
@@ -155,8 +165,9 @@
         event.preventDefault()
 
         const windowName = 'myChrome' // уникальное имя окна
-        const windowFeatures =
-          'left=100,top=200,width=800,height=600,resizable=yes,scrollbars=yes,menubar=yes'
+        const windowFeatures = `left=${screen.availWidth / 2},top=0,width=${
+          screen.availWidth / 2
+        },height=${screen.availHeight},resizable=yes,scrollbars=yes,menubar=yes`
 
         if (!namedWindow || namedWindow.closed) {
           // Открываем новое окно при первом клике
@@ -164,7 +175,7 @@
         } else {
           // Открываем ссылку в новой вкладке уже существующего окна
           namedWindow.focus()
-          namedWindow.open(url, '_blank')
+          namedWindow.location.href = url
         }
       }
     </script>
