@@ -2,6 +2,73 @@ import { marked } from './marked.esm.js'
 
 const onLoaded = () => {
   //
+  let namedWindow = null
+
+  const listResultLink = document.querySelectorAll('.result__link')
+
+  const onClickOpenNamedWindow = (event) => {
+    event.preventDefault()
+    const href = event.currentTarget.href
+    openInNamedWindow(href)
+  }
+
+  listResultLink.forEach((item) => {
+    item.addEventListener('click', onClickOpenNamedWindow)
+  })
+
+  function openInNamedWindow(request) {
+    const synonym = document.querySelector('#synonym')?.textContent || ''
+
+    const requestUrl = request.replace('%synonym%', synonym)
+
+    const windowName = 'myChrome' // уникальное имя окна
+    const windowFeatures = `left=${screen.availWidth / 2},top=0,width=${
+      screen.availWidth / 2
+    },height=${screen.availHeight},resizable=yes,scrollbars=yes,menubar=yes`
+
+    if (!namedWindow || namedWindow.closed) {
+      // Открываем новое окно при первом клике
+      namedWindow = window.open(requestUrl, windowName, windowFeatures)
+    } else {
+      // Открываем ссылку в новой вкладке уже существующего окна
+      namedWindow.focus()
+      namedWindow.location.href = requestUrl
+    }
+  }
+
+  //
+  const buttonNextTask = document.querySelector('button.next-task')
+
+  const onClickButtonNextTask = () => {
+    const listResultText = document.querySelectorAll('.result__text')
+
+    let showError = false
+
+    listResultText.forEach((item) => {
+      item.classList.remove('error')
+
+      if (item.value == '') {
+        item.classList.add('error')
+        showError = true
+      }
+    })
+
+    if (showError) {
+      document.querySelector('.message').classList.remove('message--hidden')
+    }
+  }
+
+  buttonNextTask?.addEventListener('click', onClickButtonNextTask)
+
+  const currentUrl = new URL(window.location.href)
+  const searchParams = new URLSearchParams(currentUrl.search)
+  const searchString = searchParams.get('synonym') || '?synonym из url'
+
+  const spanSynonym = document.querySelector('#synonym')
+
+  if (spanSynonym) {
+    spanSynonym.textContent = searchString
+  }
 
   console.log(
     marked.parse('# Marked in the browser\n\nRendered by **marked**.'),
@@ -107,14 +174,14 @@ const onLoaded = () => {
   }
   buttonSidebarToggle.addEventListener('click', onClickButtonSidebarToggle)
 
-  const messages = document.querySelector('.messages')
-  const buttonMessagesClose = document.querySelector('.messages button.close')
+  const message = document.querySelector('.message')
+  const buttonMessageClose = document.querySelector('.message button.close')
 
-  const onClickButtonMessagesClose = () => {
-    messages.classList.add('messages--hidden')
+  const onClickButtonMessageClose = () => {
+    message.classList.add('message--hidden')
   }
 
-  buttonMessagesClose.addEventListener('click', onClickButtonMessagesClose)
+  buttonMessageClose.addEventListener('click', onClickButtonMessageClose)
 
   const buttonPopupClose = document.querySelector('.popup button.close')
 

@@ -64,7 +64,7 @@ ol {
 }
 
 ul {
-  list-style: disc;
+  list-style: none;
 }
 
 hr {
@@ -171,7 +171,6 @@ button {
 
 .sidebar ul,
 .sidebar ol {
-  list-style: none;
   padding-left: 0;
 }
 
@@ -225,7 +224,7 @@ button {
   gap: 1em;
 }
 
-.messages {
+.message {
   background-color: var(--bg-white);
   width: 300px;
   padding: 1em;
@@ -249,7 +248,7 @@ button {
 }
 
 .popup button.close,
-.messages button.close {
+.message button.close {
   width: 2em;
   height: 2em;
   position: absolute;
@@ -262,7 +261,7 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
-.messages--hidden {
+.message--hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -326,7 +325,7 @@ button {
   opacity: 1;
 }
 
-.messages h2 {
+.message h2 {
   margin-bottom: 0.5em;
 }
 
@@ -445,4 +444,9 @@ ul.grid--striped li {
   background-color: var(--bg-yellow-alpha);
   border: 1px solid var(--border-black);
   flex-grow: 1;
+}
+
+input.error {
+  outline: 4px solid var(--bg-red);
+  border-color: var(--bg-red);
 }

@@ -66,14 +66,12 @@
 
           <div class="block shadow">
             <h2>
-              Найдите <b>3</b> синонима слова "<b>трактор</b>" и вставьте их в
-              поля ниже.
+              Найдите <b>3</b> синонима слова "<b id="synonym"
+                >?synonym из url</b
+              >" и вставьте их в поля ниже.
             </h2>
             <div class="result block shadow">
-              <a
-                class="result__link"
-                href="https://sinonim.org/s/трактор"
-                onclick="openInNamedWindow(event, this.href)"
+              <a class="result__link" href="https://sinonim.org/s/%synonym%"
                 >синонимы на <b>sinonim.org</b>
               </a>
 
@@ -85,10 +83,7 @@
             </div>
 
             <div class="result block shadow">
-              <a
-                class="result__link"
-                href="https://text.ru/synonym/трактор"
-                onclick="openInNamedWindow(event, this.href)"
+              <a class="result__link" href="https://text.ru/synonym/%synonym%"
                 >синонимы на <b>text.ru</b></a
               >
               <div class="result__fields">
@@ -109,8 +104,7 @@
             <div class="result block shadow">
               <a
                 class="result__link"
-                href="https://kartaslov.ru/синонимы-к-слову/трактор"
-                onclick="openInNamedWindow(event, this.href)"
+                href="https://kartaslov.ru/синонимы-к-слову/%synonym%"
                 >синонимы на <b>kartaslov.ru</b></a
               >
               <div class="result__fields">
@@ -121,7 +115,7 @@
             </div>
           </div>
 
-          <button class="next-task">Далее</button>
+          <button class="next-task">далее</button>
         </div>
       </div>
 
@@ -149,35 +143,13 @@
       </div>
     </div>
 
-    <div class="messages messages--hidden">
-      <h2>Сообщение</h2>
-      <p>Содержимое сообщения 1</p>
-      <p>Содержимое сообщения 2</p>
-      <p>Содержимое сообщения 3</p>
+    <div class="message message--hidden">
+      <h2>Завершите текущую задачу</h2>
+      <p>Не все поля формы заполнены!</p>
       <button class="close"></button>
     </div>
 
     <script type="module" src="./js/main.js"></script>
-    <script>
-      let namedWindow = null
-
-      function openInNamedWindow(event, url) {
-        event.preventDefault()
-
-        const windowName = 'myChrome' // уникальное имя окна
-        const windowFeatures = `left=${screen.availWidth / 2},top=0,width=${
-          screen.availWidth / 2
-        },height=${screen.availHeight},resizable=yes,scrollbars=yes,menubar=yes`
-
-        if (!namedWindow || namedWindow.closed) {
-          // Открываем новое окно при первом клике
-          namedWindow = window.open(url, windowName, windowFeatures)
-        } else {
-          // Открываем ссылку в новой вкладке уже существующего окна
-          namedWindow.focus()
-          namedWindow.location.href = url
-        }
-      }
-    </script>
+    <script></script>
   </body>
 </html>
