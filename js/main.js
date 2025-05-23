@@ -55,6 +55,8 @@ const onLoaded = () => {
 
     if (showError) {
       document.querySelector('.message').classList.remove('message--hidden')
+    } else {
+      document.querySelector('.message').classList.add('message--hidden')
     }
   }
 
