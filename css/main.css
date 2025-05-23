@@ -355,16 +355,22 @@ button {
 
 .popup .body {
   position: relative;
+  padding: 1em;
 }
 
-.popup .content {
+.popup .wrapper {
   background-color: var(--bg-content);
   padding: 2em;
   border-radius: 1em;
   box-shadow: var(--shadow-md);
-  max-width: 90vw;
-  max-height: 90vh;
-  overflow: scroll;
+  max-width: 75vw;
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.popup .content {
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .durations {
