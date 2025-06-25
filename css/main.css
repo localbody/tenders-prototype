@@ -86,6 +86,7 @@ button {
   background-repeat: no-repeat;
   background-color: transparent;
   box-shadow: var(--shadow-sm);
+  border-radius: 0.5em;
 }
 
 .button--info {
@@ -110,6 +111,12 @@ button {
 
 .button--flat {
   box-shadow: none;
+}
+
+.button--next {
+  padding: 0.5em 2em;
+  background-color: #3498db;
+  color: var(--text-white);
 }
 
 .main {
@@ -153,6 +160,10 @@ button {
   background-color: var(--bg-white);
   display: grid;
   gap: 1em;
+}
+
+.block--columns-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .shadow {
@@ -254,8 +265,7 @@ ul.grid--striped li {
 
 .result {
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  justify-items: flex-start;
+  grid-template-columns: 1fr;
 }
 
 .result__link {
@@ -263,7 +273,7 @@ ul.grid--striped li {
 }
 
 .result__fields {
-  display: flex;
+  display: grid;
   align-items: center;
   gap: 1em;
   width: 100%;
@@ -280,4 +290,15 @@ ul.grid--striped li {
 input.error {
   outline: 4px solid var(--bg-red);
   border-color: var(--bg-red);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.checkbox input[type='checkbox'] {
+  width: 1.5em;
+  height: 1.5em;
 }

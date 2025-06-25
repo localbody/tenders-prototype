@@ -8,8 +8,11 @@ const onLoaded = () => {
 
   const onClickOpenNamedWindow = (event) => {
     event.preventDefault()
-    const href = event.currentTarget.href
-    openInNamedWindow(href)
+    const url = event.currentTarget.dataset.url
+
+    console.log(url)
+
+    openInNamedWindow(url)
   }
 
   listResultLink.forEach((item) => {
@@ -17,11 +20,13 @@ const onLoaded = () => {
   })
 
   function openInNamedWindow(request) {
+    console.log(request)
+
     const synonym = document.querySelector('#synonym')?.textContent || ''
 
     const requestUrl = request.replace('%synonym%', synonym)
 
-    const windowName = 'myChrome' // уникальное имя окна
+    const windowName = 'myBrowser' // уникальное имя окна
     const windowFeatures = `left=${screen.availWidth / 2},top=0,width=${
       screen.availWidth / 2
     },height=${screen.availHeight},resizable=yes,scrollbars=yes,menubar=yes`

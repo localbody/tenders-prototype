@@ -68,53 +68,115 @@
 
           <div class="block shadow">
             <h2>
-              Найдите <b>3</b> синонима слова "<b id="synonym"
+              найдите <b>3</b> синонима слова "<b id="synonym"
                 >?synonym из url</b
               >" и вставьте их в поля ниже.
             </h2>
-            <div class="result block shadow">
-              <a class="result__link" href="https://sinonim.org/s/%synonym%"
-                >синонимы на <b>sinonim.org</b>
-              </a>
 
-              <div class="result__fields">
-                <input class="result__text" type="text" value="тягач" />
-                <input class="result__text" type="text" value="бульдозер" />
-                <input class="result__text" type="text" value="железный конь" />
+            <div class="block block--columns-3">
+              <div class="result block shadow">
+                <button
+                  class="button--next result__link"
+                  data-url="https://sinonim.org/s/%synonym%"
+                >
+                  начать
+                </button>
+
+                <div class="result__fields">
+                  <input class="result__text" type="text" value="тягач" />
+                  <input class="result__text" type="text" value="бульдозер" />
+                  <input
+                    class="result__text"
+                    type="text"
+                    value="железный конь"
+                  />
+                </div>
+              </div>
+
+              <div class="result block shadow">
+                <button
+                  class="button--next result__link"
+                  data-url="https://text.ru/synonym/%synonym%"
+                >
+                  далее
+                </button>
+                <div class="result__fields">
+                  <input
+                    class="result__text"
+                    type="text"
+                    value="стальной пахарь"
+                  />
+                  <input class="result__text" type="text" value="тягач" />
+                  <input class="result__text" type="text" value="бульдозер" />
+                </div>
+              </div>
+
+              <div class="result block shadow">
+                <button
+                  class="button--next result__link"
+                  data-url="https://kartaslov.ru/синонимы-к-слову/%synonym%"
+                >
+                  далее
+                </button>
+                <div class="result__fields">
+                  <input class="result__text" type="text" value="локомотив" />
+                  <input class="result__text" type="text" value="тягач" />
+                  <input class="result__text" type="text" value="бульдозер" />
+                </div>
               </div>
             </div>
+          </div>
 
-            <div class="result block shadow">
-              <a class="result__link" href="https://text.ru/synonym/%synonym%"
-                >синонимы на <b>text.ru</b></a
-              >
-              <div class="result__fields">
+          <div class="block shadow">
+            <h2>отметьте <b>3</b> самых подходящих синонима</h2>
+
+            <ul class="block">
+              <li class="checkbox">
                 <input
-                  class="result__text"
-                  type="text"
+                  type="checkbox"
+                  name="synonym1"
+                  id="synonym1"
+                  value="тягач"
+                />
+                <label for="synonym1">тягач</label>
+              </li>
+              <li class="checkbox">
+                <input
+                  type="checkbox"
+                  name="synonym2"
+                  id="synonym2"
                   value="Стальной пахарь"
                 />
+                <label for="synonym2">стальной пахарь</label>
+              </li>
+              <li class="checkbox">
                 <input
-                  class="result__text"
-                  type="text"
-                  value="Степной богатырь"
+                  type="checkbox"
+                  name="synonym3"
+                  id="synonym3"
+                  value="бульдозер"
                 />
-                <input class="result__text" type="text" />
-              </div>
-            </div>
-
-            <div class="result block shadow">
-              <a
-                class="result__link"
-                href="https://kartaslov.ru/синонимы-к-слову/%synonym%"
-                >синонимы на <b>kartaslov.ru</b></a
-              >
-              <div class="result__fields">
-                <input class="result__text" type="text" value="локомотив" />
-                <input class="result__text" type="text" />
-                <input class="result__text" type="text" />
-              </div>
-            </div>
+                <label for="synonym3">бульдозер</label>
+              </li>
+              <li class="checkbox">
+                <input
+                  type="checkbox"
+                  name="synonym4"
+                  id="synonym4"
+                  value="железный конь"
+                />
+                <label for="synonym4">железный конь</label>
+              </li>
+              <li class="checkbox">
+                <input
+                  type="checkbox"
+                  name="synonym5"
+                  id="synonym5"
+                  value="локомотив"
+                />
+                <label for="synonym5">локомотив</label>
+              </li>
+            </ul>
           </div>
 
           <button class="next-task">далее</button>
