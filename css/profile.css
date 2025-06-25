@@ -1,0 +1,42 @@
+.profile {
+  position: relative;
+}
+
+.profile--warning::before {
+  font-size: 0.75em;
+  content: '';
+  display: block;
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+  background-color: var(--bg-red);
+  position: absolute;
+  top: 25%;
+  left: -1em;
+  animation: pulse 1s ease infinite;
+}
+
+.profile__content {
+  position: absolute;
+  width: 20em;
+  border-radius: 0.5em;
+  right: 0;
+  visibility: hidden;
+  height: 0;
+  background-color: white;
+  padding: 1em;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transition: 0.3s opacity ease;
+  color: var(--text-second);
+}
+
+.profile__content ul li {
+  line-height: 2em;
+}
+
+.profile__content.show {
+  visibility: visible;
+  height: inherit;
+  opacity: 1;
+}

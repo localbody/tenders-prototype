@@ -3,6 +3,12 @@
 @import url(./var.css);
 @import url(./reset.css);
 @import url(./normalize.css);
+@import url(./header.css);
+@import url(./footer.css);
+@import url(./sidebar.css);
+@import url(./popup.css);
+@import url(./profile.css);
+@import url(./dropdown.css);
 
 html,
 body {
@@ -112,105 +118,11 @@ button {
   height: 100vh;
 }
 
-.header {
-  background-color: var(--bg-header);
-  padding: 0.5em;
-  display: grid;
-  grid-template-columns: 1fr max-content;
-  color: white;
-}
-
-.header .profile button {
-  background-image: url(../images/down.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center right;
-  padding-right: 2em;
-}
-
-.header .title {
-  font-size: 1.25em;
-}
-
-.header .title a {
-  color: var(--text-white);
-  text-decoration: none;
-}
-
 .main .body {
   flex: 1;
   display: flex;
   overflow: hidden;
   color: var(--text);
-}
-
-.footer {
-  padding: 0.5em;
-  background-color: var(--bg-footer);
-  color: var(--text-second);
-}
-
-.sidebar {
-  background-color: var(--bg-sidebar);
-  width: 10%;
-  color: var(--text-second);
-  min-width: 20em;
-  overflow: auto;
-  padding: 0.5em;
-  position: relative;
-  transition: 0.3s width ease;
-  overflow-x: hidden;
-}
-
-.sidebar--hidden {
-  width: 2em;
-  min-width: initial;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.sidebar ul,
-.sidebar ol {
-  padding-left: 0;
-}
-
-.sidebar--hidden .sidebar__content {
-  visibility: hidden;
-}
-
-.sidebar button.toggle {
-  width: 2em;
-  height: 2em;
-  background-color: var(--bg-white);
-  background-image: url(../images/left.svg);
-  border-radius: 50%;
-  background-size: contain;
-  position: absolute;
-  bottom: 0.5em;
-  right: 0.5em;
-  transition: 0.3s all ease;
-}
-
-.sidebar--hidden button.toggle {
-  transform: rotate(180deg);
-}
-
-.sidebar__content ul {
-  display: flex;
-  flex-direction: column;
-  /* gap: 1em; */
-}
-
-.sidebar__content ul li {
-  padding: 0.5em;
-}
-
-.sidebar__content ul li.active {
-  background-color: var(--bg-yellow);
-  color: var(--text);
-  font-size: 1.25em;
-  border-radius: 0.5em;
-  width: fit-content;
 }
 
 .main .content {
@@ -268,24 +180,6 @@ button {
   transition: 0.3s all ease;
 }
 
-.profile {
-  position: relative;
-}
-
-.profile--warning::before {
-  font-size: 0.75em;
-  content: '';
-  display: block;
-  height: 1em;
-  width: 1em;
-  border-radius: 1em;
-  background-color: var(--bg-red);
-  position: absolute;
-  top: 25%;
-  left: -1em;
-  animation: pulse 1s ease infinite;
-}
-
 @keyframes pulse {
   0% {
     transform: scale(0.5);
@@ -300,77 +194,8 @@ button {
   }
 }
 
-.profile__content {
-  position: absolute;
-  width: 20em;
-  border-radius: 0.5em;
-  right: 0;
-  visibility: hidden;
-  height: 0;
-  background-color: white;
-  padding: 1em;
-  box-shadow: var(--shadow-sm);
-  opacity: 0;
-  transition: 0.3s opacity ease;
-  color: var(--text-second);
-}
-
-.profile__content ul li {
-  line-height: 2em;
-}
-
-.profile__content.show {
-  visibility: visible;
-  height: inherit;
-  opacity: 1;
-}
-
 .message h2 {
   margin-bottom: 0.5em;
-}
-
-.popup {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  height: 0;
-  width: 0;
-  top: 0;
-  left: 0;
-  position: absolute;
-  background-color: var(--popup-background-body);
-  z-index: 100;
-}
-
-.popup--show {
-  visibility: visible;
-  pointer-events: initial;
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  place-content: center;
-  opacity: 1;
-  transition: 0.3s opacity ease;
-}
-
-.popup .body {
-  position: relative;
-  padding: 1em;
-}
-
-.popup .wrapper {
-  background-color: var(--bg-content);
-  padding: 2em;
-  border-radius: 1em;
-  box-shadow: var(--shadow-md);
-  max-width: 75vw;
-  max-height: 80vh;
-  overflow: hidden;
-}
-
-.popup .content {
-  max-height: 80vh;
-  overflow-y: auto;
 }
 
 .durations {

@@ -1,0 +1,16 @@
+.header {
+  background-color: var(--bg-header);
+  padding: 0.5em;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  color: white;
+}
+
+.header .title {
+  font-size: 1.25em;
+}
+
+.header .title a {
+  color: var(--text-white);
+  text-decoration: none;
+}

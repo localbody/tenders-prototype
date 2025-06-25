@@ -1,0 +1,43 @@
+.popup {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: var(--popup-background-body);
+  z-index: 100;
+}
+
+.popup--show {
+  visibility: visible;
+  pointer-events: initial;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  opacity: 1;
+  transition: 0.3s opacity ease;
+}
+
+.popup .body {
+  position: relative;
+  padding: 1em;
+}
+
+.popup .wrapper {
+  background-color: var(--bg-content);
+  padding: 2em;
+  border-radius: 1em;
+  box-shadow: var(--shadow-md);
+  max-width: 75vw;
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.popup .content {
+  max-height: 80vh;
+  overflow-y: auto;
+}

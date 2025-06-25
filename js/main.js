@@ -118,11 +118,6 @@ const onLoaded = () => {
     // spanStepDuration.textContent = formatMinutesToHHMM(timeDurationMinutes)
   }
 
-  const continueStepDuration = () => {
-    //
-    const timerInterval = setInterval(onTimer, 60 * 1000)
-  }
-
   const popup = document.querySelector('.popup')
   const popupContent = document.querySelector('.popup .content')
 
@@ -144,7 +139,7 @@ const onLoaded = () => {
 
   const onClickDocument = function (event) {
     if (
-      !event.target.classList.contains('dropdown-toggle') &&
+      !event.target.classList.contains('dropdown__toggle') &&
       !event.target.closest('.show')
     ) {
       document.querySelectorAll('.show').forEach((item) => {
@@ -193,16 +188,53 @@ const onLoaded = () => {
 
   buttonPopupClose.addEventListener('click', onClickButtonPopupClose)
 
-  const profileContent = document.querySelector('.profile__content')
+  // dropdown
+  const listDropdownToggles = document.querySelectorAll('.dropdown__toggle')
 
-  const profileButton = document.querySelector('.profile button')
+  const onClickDropdownToggle = (event) => {
+    const dropdownToggle = event.target
+    const dropdown = dropdownToggle.closest('.dropdown')
+    const dropdownContent = dropdown.querySelector('.dropdown__content')
 
-  const onClickProfileButton = () => {
-    profileButton.classList.toggle('show')
-    profileContent.classList.toggle('show')
+    dropdownContent.classList.toggle('show')
+
+    // если показываем dropdown
+    if (dropdownContent.classList.contains('show')) {
+      // покажем кнопку "закрыть" dropdown
+
+      const dropdownClose = document.createElement('button')
+      dropdownClose.classList.add('dropdown__close')
+
+      dropdownContent.appendChild(dropdownClose)
+
+      // проверим где кнопка dropdownToggle - в верхней или в нижней половине экрана
+      // чтоб понять куда вываливать dropdown__content
+      const rect = dropdown.getBoundingClientRect()
+
+      if (
+        window.innerHeight - rect.y >=
+        Math.abs(window.innerHeight / 2 - rect.y)
+      ) {
+        // раскрыть вниз
+        dropdownContent.style.top = dropdownToggle.clientHeight + 'px'
+      } else {
+        // раскрыть вверх
+        dropdownContent.style.bottom = dropdownToggle.clientHeight + 'px'
+      }
+    } else {
+    }
+
+    dropdownToggle.classList.toggle('show')
   }
 
-  profileButton.addEventListener('click', onClickProfileButton)
+  listDropdownToggles.forEach((button) => {
+    button.addEventListener('click', onClickDropdownToggle)
+  })
+  // end dropdown
+
+  const continueStepDuration = () => {
+    const timerInterval = setInterval(onTimer, 60 * 1000)
+  }
 
   continueStepDuration()
 }
