@@ -10,11 +10,16 @@
   visibility: hidden;
   height: 0;
   background-color: white;
-  padding: 1em;
+  padding: 1em 4em 1em 0.5em;
   box-shadow: var(--shadow-sm);
   opacity: 0;
   transition: 0.3s opacity ease;
   color: var(--text-second);
+}
+
+.dropdown__content ul {
+  display: grid;
+  gap: 1em;
 }
 
 .dropdown__content ul li {
@@ -45,10 +50,19 @@
   font-size: 2em;
 }
 
+.profile .dropdown__toggle::after {
+  transform: rotate(90deg);
+  background-image: url(../images/dots.svg);
+}
+
+.tools .dropdown__toggle::after {
+  filter: invert(1);
+}
+
 .dropdown__close {
   position: absolute;
-  right: 1em;
-  top: 1em;
+  right: 0.5em;
+  top: 0.5em;
   width: 2em;
   height: 2em;
   background-image: url(../images/close.svg);

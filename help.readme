@@ -1,2 +1,3 @@
 window.open('calculator:///');
 
+нажимаем .step__action - делаем активный step

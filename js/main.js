@@ -4,7 +4,9 @@ const onLoaded = () => {
   //
   let namedWindow = null
 
-  const listResultLink = document.querySelectorAll('.result__link')
+  const listActionOpenUrl = document.querySelectorAll(
+    '[data-action="open-url"]',
+  )
 
   const onClickOpenNamedWindow = (event) => {
     event.preventDefault()
@@ -15,7 +17,7 @@ const onLoaded = () => {
     openInNamedWindow(url)
   }
 
-  listResultLink.forEach((item) => {
+  listActionOpenUrl.forEach((item) => {
     item.addEventListener('click', onClickOpenNamedWindow)
   })
 
@@ -42,9 +44,9 @@ const onLoaded = () => {
   }
 
   //
-  const buttonNextTask = document.querySelector('button.next-task')
+  const buttonNextStep = document.querySelector('button.next')
 
-  const onClickButtonNextTask = () => {
+  const onClickButtonNextStep = () => {
     const listResultText = document.querySelectorAll('.result__text')
 
     let showError = false
@@ -65,7 +67,7 @@ const onLoaded = () => {
     }
   }
 
-  buttonNextTask?.addEventListener('click', onClickButtonNextTask)
+  buttonNextStep?.addEventListener('click', onClickButtonNextStep)
 
   const currentUrl = new URL(window.location.href)
   const searchParams = new URLSearchParams(currentUrl.search)
@@ -207,10 +209,16 @@ const onLoaded = () => {
     if (dropdownContent.classList.contains('show')) {
       // покажем кнопку "закрыть" dropdown
 
-      const dropdownClose = document.createElement('button')
-      dropdownClose.classList.add('dropdown__close')
+      if (!dropdownContent.querySelector('.dropdown__close')) {
+        const dropdownClose = document.createElement('button')
+        dropdownClose.classList.add('dropdown__close')
 
-      dropdownContent.appendChild(dropdownClose)
+        dropdownClose.addEventListener('click', () => {
+          dropdownContent.classList.remove('show')
+        })
+
+        dropdownContent.appendChild(dropdownClose)
+      }
 
       // проверим где кнопка dropdownToggle - в верхней или в нижней половине экрана
       // чтоб понять куда вываливать dropdown__content
@@ -240,6 +248,8 @@ const onLoaded = () => {
   const continueStepDuration = () => {
     const timerInterval = setInterval(onTimer, 60 * 1000)
   }
+
+  // нажимаем .step__action - делаем активный step
 
   continueStepDuration()
 }

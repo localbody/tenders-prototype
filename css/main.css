@@ -88,6 +88,29 @@ button {
   background-color: transparent;
   box-shadow: var(--shadow-sm);
   border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.5em 1em;
+}
+
+button[data-action='open-url'] {
+  text-decoration: underline;
+}
+
+button[data-action='open-url']::after {
+  content: '';
+  width: 1em;
+  height: 1em;
+  background-image: url(../images/link.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .button--info {
@@ -139,6 +162,8 @@ button {
   overflow: auto; /* Allow scrolling if content overflows */
   padding: 1em;
 
+  min-width: 600px;
+
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -161,10 +186,14 @@ button {
   background-color: var(--bg-white);
   display: grid;
   gap: 1em;
+  justify-items: start;
 }
 
-.block--columns-3 {
-  grid-template-columns: repeat(3, 1fr);
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
 }
 
 .shadow {
@@ -217,7 +246,7 @@ button {
   gap: 1em;
 }
 
-.step-duration {
+.duration {
   /* font-size: 1.25em; */
   /* font-weight: 800; */
   background-color: wheat;
@@ -226,7 +255,17 @@ button {
   white-space: nowrap;
 }
 
-.next-task {
+.operation {
+}
+
+.step {
+}
+
+.step--current {
+  outline: 0.3em solid plum;
+}
+
+.next {
   padding: 1em 2em;
   background-color: #3498db;
   border-radius: 0.5em;
@@ -264,23 +303,24 @@ ul.grid--striped li {
   gap: 1em;
 }
 
-.result {
-  display: grid;
-  grid-template-columns: 1fr;
+.operation {
 }
 
-.result__link {
+.step {
+}
+
+.step__action {
   align-self: center;
 }
 
-.result__fields {
+.step__fields {
   display: grid;
   align-items: center;
   gap: 1em;
   width: 100%;
 }
 
-.result__text {
+.step__text {
   padding: 0.5em;
   color: var(--text-green);
   background-color: var(--bg-yellow-alpha);
@@ -302,4 +342,8 @@ input.error {
 .checkbox input[type='checkbox'] {
   width: 1.5em;
   height: 1.5em;
+}
+
+.width--full {
+  width: 100%;
 }

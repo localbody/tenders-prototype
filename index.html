@@ -66,68 +66,67 @@
         <div class="content">
           <!-- -->
 
-          <div class="block shadow">
+          <div class="block shadow operation">
             <h2>
               найдите <b>3</b> синонима слова "<b id="synonym"
                 >?synonym из url</b
               >" и вставьте их в поля ниже.
             </h2>
 
-            <div class="block block--columns-3">
-              <div class="result block shadow">
+            <div class="columns">
+              <div class="width--full block shadow step step--current">
                 <button
-                  class="button--next result__link"
+                  class="step__action"
+                  data-action="open-url"
                   data-url="https://sinonim.org/s/%synonym%"
                 >
-                  начать
+                  синонимы на sinonim.org
                 </button>
 
-                <div class="result__fields">
-                  <input class="result__text" type="text" value="тягач" />
-                  <input class="result__text" type="text" value="бульдозер" />
-                  <input
-                    class="result__text"
-                    type="text"
-                    value="железный конь"
-                  />
+                <div class="step__fields">
+                  <input class="step__text" type="text" value="тягач" />
+                  <input class="step__text" type="text" value="бульдозер" />
+                  <input class="step__text" type="text" value="" />
                 </div>
               </div>
 
-              <div class="result block shadow">
+              <div class="width--full step block shadow step">
                 <button
-                  class="button--next result__link"
+                  class="step__action"
+                  data-action="open-url"
                   data-url="https://text.ru/synonym/%synonym%"
                 >
-                  далее
+                  синонимы на text.ru
                 </button>
-                <div class="result__fields">
+                <div class="step__fields">
                   <input
-                    class="result__text"
+                    class="step__text"
                     type="text"
                     value="стальной пахарь"
                   />
-                  <input class="result__text" type="text" value="тягач" />
-                  <input class="result__text" type="text" value="бульдозер" />
+                  <input class="step__text" type="text" value="тягач" />
+                  <input class="step__text" type="text" value="бульдозер" />
                 </div>
               </div>
 
-              <div class="result block shadow">
+              <div class="width--full step block shadow step">
                 <button
-                  class="button--next result__link"
+                  class="step__action"
+                  data-action="open-url"
                   data-url="https://kartaslov.ru/синонимы-к-слову/%synonym%"
                 >
-                  далее
+                  синонимы на kartaslov.ru
                 </button>
-                <div class="result__fields">
-                  <input class="result__text" type="text" value="локомотив" />
-                  <input class="result__text" type="text" value="тягач" />
-                  <input class="result__text" type="text" value="бульдозер" />
+                <div class="step__fields">
+                  <input class="step__text" type="text" value="локомотив" />
+                  <input class="step__text" type="text" value="тягач" />
+                  <input class="step__text" type="text" value="бульдозер" />
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="block shadow">
+          <div class="block shadow operation">
             <h2>отметьте <b>3</b> самых подходящих синонима</h2>
 
             <ul class="block">
@@ -179,7 +178,7 @@
             </ul>
           </div>
 
-          <button class="next-task">далее</button>
+          <button class="next">далее</button>
         </div>
       </div>
 
@@ -187,19 +186,17 @@
         <div class="durations">
           <div>
             <span>Осталось времени</span>
-            <span id="countdown" class="step-duration"
+            <span id="countdown" class="duration"
               >11 дней 08 часов 15 минут</span
             >
           </div>
           <div>
             <span>Окончание задачи</span>
-            <span id="datetime-final" class="step-duration"
-              >01.12.2025 23:59</span
-            >
+            <span id="datetime-final" class="duration">01.12.2025 23:59</span>
           </div>
           <div>
             <span>Мяч на той стороне до</span>
-            <span id="on-that-side" class="step-duration text--red"
+            <span id="on-that-side" class="duration text--red"
               >30.10.2025 23:59</span
             >
           </div>
@@ -210,12 +207,17 @@
           <div class="dropdown__content">
             <div>
               <ul>
-                <li>роль: менеджер</li>
-                <li>активные задачи: <a href="">10</a></li>
-                <li>неотложные задачи: <a href="">1</a></li>
-                <li><hr /></li>
-                <li><a href="">Сменить пароль</a></li>
-                <li><a href="">Завершить работу</a></li>
+                <li>
+                  <button>Калькулятор</button>
+                </li>
+
+                <li>
+                  <button>Найти на Яндекс</button>
+                </li>
+
+                <li>
+                  <button>Найти в Google</button>
+                </li>
               </ul>
             </div>
           </div>
