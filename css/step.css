@@ -1,0 +1,26 @@
+.step {
+}
+
+.step--current {
+  outline: 0.3em solid plum;
+}
+
+.step__fields {
+  display: grid;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.step__field {
+  display: flex;
+  align-items: center;
+}
+
+.step__text {
+  padding: 0.5em;
+  color: var(--text-green);
+  background-color: var(--bg-yellow-alpha);
+  border: 1px solid var(--border-black);
+  flex-grow: 1;
+}

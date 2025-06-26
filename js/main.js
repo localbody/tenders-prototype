@@ -12,8 +12,6 @@ const onLoaded = () => {
     event.preventDefault()
     const url = event.currentTarget.dataset.url
 
-    console.log(url)
-
     openInNamedWindow(url)
   }
 
@@ -22,15 +20,13 @@ const onLoaded = () => {
   })
 
   function openInNamedWindow(request) {
-    console.log(request)
-
     const synonym = document.querySelector('#synonym')?.textContent || ''
 
     const requestUrl = request.replace('%synonym%', synonym)
 
     const windowName = 'myBrowser' // уникальное имя окна
-    const windowFeatures = `left=${screen.availWidth / 2},top=0,width=${
-      screen.availWidth / 2
+    const windowFeatures = `left=${window.innerWidth + 10},top=0,width=${
+      screen.availWidth - window.innerWidth - 10
     },height=${screen.availHeight},resizable=yes,scrollbars=yes,menubar=yes`
 
     if (!namedWindow || namedWindow.closed) {
@@ -249,7 +245,19 @@ const onLoaded = () => {
     const timerInterval = setInterval(onTimer, 60 * 1000)
   }
 
-  // нажимаем .step__action - делаем активный step
+  // нажимаем data-step="current" - делаем активный step
+  const listStepCurrent = document.querySelectorAll('[data-step="current"]')
+
+  const onClickStepCurrent = (event) => {
+    const button = event.target
+    document.querySelector('.step--current')?.classList.remove('step--current')
+
+    const step = button.closest('.step')
+    step?.classList.add('step--current')
+  }
+  listStepCurrent.forEach((button) => {
+    button.addEventListener('click', onClickStepCurrent)
+  })
 
   continueStepDuration()
 }

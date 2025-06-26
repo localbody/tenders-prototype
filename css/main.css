@@ -10,6 +10,7 @@
 @import url(./profile.css);
 @import url(./dropdown.css);
 @import url(./tools.css);
+@import url(./step.css);
 
 html,
 body {
@@ -190,6 +191,7 @@ button[data-action='open-url']::after {
 }
 
 .columns {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
@@ -241,6 +243,7 @@ button[data-action='open-url']::after {
 
 .durations {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
   gap: 1em;
@@ -253,16 +256,6 @@ button[data-action='open-url']::after {
   padding: 0.25em 0.75em;
   border-radius: 1em;
   white-space: nowrap;
-}
-
-.operation {
-}
-
-.step {
-}
-
-.step--current {
-  outline: 0.3em solid plum;
 }
 
 .next {
@@ -301,31 +294,6 @@ ul.grid--striped li {
   display: flex;
   align-items: center;
   gap: 1em;
-}
-
-.operation {
-}
-
-.step {
-}
-
-.step__action {
-  align-self: center;
-}
-
-.step__fields {
-  display: grid;
-  align-items: center;
-  gap: 1em;
-  width: 100%;
-}
-
-.step__text {
-  padding: 0.5em;
-  color: var(--text-green);
-  background-color: var(--bg-yellow-alpha);
-  border: 1px solid var(--border-black);
-  flex-grow: 1;
 }
 
 input.error {

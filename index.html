@@ -74,9 +74,9 @@
             </h2>
 
             <div class="columns">
-              <div class="width--full block shadow step step--current">
+              <div class="width--full block shadow step">
                 <button
-                  class="step__action"
+                  data-step="current"
                   data-action="open-url"
                   data-url="https://sinonim.org/s/%synonym%"
                 >
@@ -84,46 +84,52 @@
                 </button>
 
                 <div class="step__fields">
-                  <input class="step__text" type="text" value="тягач" />
-                  <input class="step__text" type="text" value="бульдозер" />
-                  <input class="step__text" type="text" value="" />
+                  <div class="step__field">
+                    <input class="step__text" type="text" value="" />
+                    <button class="paste"></button>
+                  </div>
+                  <div class="step__field">
+                    <input class="step__text" type="text" value="" />
+                    <button class="paste"></button>
+                  </div>
+                  <div class="step__field">
+                    <input class="step__text" type="text" value="" />
+                    <button class="paste"></button>
+                  </div>
                 </div>
               </div>
 
-              <div class="width--full step block shadow step">
+              <div class="width--full block shadow step">
                 <button
-                  class="step__action"
+                  data-step="current"
                   data-action="open-url"
                   data-url="https://text.ru/synonym/%synonym%"
                 >
                   синонимы на text.ru
                 </button>
                 <div class="step__fields">
-                  <input
-                    class="step__text"
-                    type="text"
-                    value="стальной пахарь"
-                  />
-                  <input class="step__text" type="text" value="тягач" />
-                  <input class="step__text" type="text" value="бульдозер" />
+                  <input class="step__text" type="text" value="" />
+                  <input class="step__text" type="text" value="" />
+                  <input class="step__text" type="text" value="" />
                 </div>
               </div>
 
-              <div class="width--full step block shadow step">
+              <div class="width--full block shadow step">
                 <button
-                  class="step__action"
+                  data-step="current"
                   data-action="open-url"
                   data-url="https://kartaslov.ru/синонимы-к-слову/%synonym%"
                 >
                   синонимы на kartaslov.ru
                 </button>
                 <div class="step__fields">
-                  <input class="step__text" type="text" value="локомотив" />
-                  <input class="step__text" type="text" value="тягач" />
-                  <input class="step__text" type="text" value="бульдозер" />
+                  <input class="step__text" type="text" value="" />
+                  <input class="step__text" type="text" value="" />
+                  <input class="step__text" type="text" value="" />
                 </div>
               </div>
             </div>
+            <button class="next">далее</button>
           </div>
 
           <div class="block shadow operation">
@@ -176,9 +182,9 @@
                 <label for="synonym5">локомотив</label>
               </li>
             </ul>
-          </div>
 
-          <button class="next">далее</button>
+            <button class="next">далее</button>
+          </div>
         </div>
       </div>
 
@@ -208,15 +214,48 @@
             <div>
               <ul>
                 <li>
-                  <button>Калькулятор</button>
+                  <button data-action="open-url" data-url="https://calc.by/">
+                    Калькуляторы и конвертеры
+                  </button>
                 </li>
 
                 <li>
-                  <button>Найти на Яндекс</button>
+                  <button data-action="open-url" data-url="https://ya.ru">
+                    Найти на Яндекс
+                  </button>
                 </li>
 
                 <li>
-                  <button>Найти в Google</button>
+                  <button data-action="open-url" data-url="https://google.com">
+                    Найти в Google
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    data-action="open-url"
+                    data-url="https://select.by/mogilev/kurs"
+                  >
+                    Курс валют select.by
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    data-action="open-url"
+                    data-url="https://myfin.by/currency/mogilev"
+                  >
+                    Курс валют myfin.by
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    data-action="open-url"
+                    data-url="https://myfin.by/converter"
+                  >
+                    Конвертер валюты myfin.by
+                  </button>
                 </li>
               </ul>
             </div>
