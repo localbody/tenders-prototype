@@ -28,11 +28,21 @@
 }
 
 .dropdown__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.dropdown__toggle::after {
+  content: '';
   background-image: url(../images/more.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center right;
-  padding-right: 2em;
+  width: 1em;
+  height: 1em;
+  font-size: 2em;
 }
 
 .dropdown__close {
