@@ -16,11 +16,3 @@
   display: flex;
   align-items: center;
 }
-
-.step__text {
-  padding: 0.5em;
-  color: var(--text-green);
-  background-color: var(--bg-yellow-alpha);
-  border: 1px solid var(--border-black);
-  flex-grow: 1;
-}

@@ -1,0 +1,21 @@
+.operation {
+  position: absolute;
+  left: -99999px;
+  visibility: hidden;
+}
+
+.operation--active,
+.operation--complete {
+  visibility: visible;
+  left: initial;
+  position: static;
+}
+
+.operation--complete {
+  pointer-events: none;
+  filter: opacity(0.5);
+}
+
+.operation[data-operation-id='0'] button.prev {
+  display: none;
+}

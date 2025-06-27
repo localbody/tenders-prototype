@@ -66,7 +66,32 @@
         <div class="content">
           <!-- -->
 
-          <div class="block shadow operation">
+          <div
+            data-operation-id="0"
+            class="block shadow operation operation--complete"
+          >
+            <h2>Уже выполненая операция<br />с какими-то данными</h2>
+            <div class="buttons">
+              <button class="prev" data-action="prev">вернуться</button>
+              <button class="next" data-action="next">далее</button>
+            </div>
+          </div>
+
+          <div
+            data-operation-id="1"
+            class="block shadow operation operation--complete"
+          >
+            <h2>Уже выполненая операция<br />с какими-то данными</h2>
+            <div class="buttons">
+              <button class="prev" data-action="prev">вернуться</button>
+              <button class="next" data-action="next">далее</button>
+            </div>
+          </div>
+
+          <div
+            data-operation-id="2"
+            class="block shadow operation operation--active"
+          >
             <h2>
               найдите <b>3</b> синонима слова "<b id="synonym"
                 >?synonym из url</b
@@ -83,18 +108,18 @@
                   синонимы на sinonim.org
                 </button>
 
-                <div class="step__fields">
-                  <div class="step__field">
-                    <input class="step__text" type="text" value="" />
-                    <button class="paste"></button>
+                <div class="fields">
+                  <div class="field field--input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
                   </div>
-                  <div class="step__field">
-                    <input class="step__text" type="text" value="" />
-                    <button class="paste"></button>
+                  <div class="field input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
                   </div>
-                  <div class="step__field">
-                    <input class="step__text" type="text" value="" />
-                    <button class="paste"></button>
+                  <div class="field input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
                   </div>
                 </div>
               </div>
@@ -107,10 +132,19 @@
                 >
                   синонимы на text.ru
                 </button>
-                <div class="step__fields">
-                  <input class="step__text" type="text" value="" />
-                  <input class="step__text" type="text" value="" />
-                  <input class="step__text" type="text" value="" />
+                <div class="fields">
+                  <div class="field field--input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
+                  </div>
+                  <div class="field input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
+                  </div>
+                  <div class="field input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
+                  </div>
                 </div>
               </div>
 
@@ -122,22 +156,35 @@
                 >
                   синонимы на kartaslov.ru
                 </button>
-                <div class="step__fields">
-                  <input class="step__text" type="text" value="" />
-                  <input class="step__text" type="text" value="" />
-                  <input class="step__text" type="text" value="" />
+                <div class="fields">
+                  <div class="field field--input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
+                  </div>
+                  <div class="field input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
+                  </div>
+                  <div class="field input-paste">
+                    <input class="text" type="text" value="" />
+                    <button class="button--flat" data-action="paste"></button>
+                  </div>
                 </div>
               </div>
             </div>
-            <button class="next">далее</button>
+            <div class="buttons">
+              <button class="prev" data-action="prev">вернуться</button>
+              <button class="next" data-action="next">далее</button>
+            </div>
           </div>
 
-          <div class="block shadow operation">
+          <div data-operation-id="3" class="block shadow operation">
             <h2>отметьте <b>3</b> самых подходящих синонима</h2>
 
-            <ul class="block">
+            <ul class="block fields">
               <li class="checkbox">
                 <input
+                  data-action="check3items"
                   type="checkbox"
                   name="synonym1"
                   id="synonym1"
@@ -147,6 +194,7 @@
               </li>
               <li class="checkbox">
                 <input
+                  data-action="check3items"
                   type="checkbox"
                   name="synonym2"
                   id="synonym2"
@@ -156,6 +204,7 @@
               </li>
               <li class="checkbox">
                 <input
+                  data-action="check3items"
                   type="checkbox"
                   name="synonym3"
                   id="synonym3"
@@ -165,6 +214,7 @@
               </li>
               <li class="checkbox">
                 <input
+                  data-action="check3items"
                   type="checkbox"
                   name="synonym4"
                   id="synonym4"
@@ -174,6 +224,7 @@
               </li>
               <li class="checkbox">
                 <input
+                  data-action="check3items"
                   type="checkbox"
                   name="synonym5"
                   id="synonym5"
@@ -183,7 +234,10 @@
               </li>
             </ul>
 
-            <button class="next">далее</button>
+            <div class="buttons">
+              <button class="prev" data-action="prev">вернуться</button>
+              <button class="next" data-action="next">далее</button>
+            </div>
           </div>
         </div>
       </div>
@@ -265,8 +319,10 @@
     </div>
 
     <div class="message message--hidden">
-      <h2>Завершите текущую задачу</h2>
-      <p>Не все поля формы заполнены!</p>
+      <div class="message__content">
+        <h2>Завершите текущую задачу</h2>
+        <p>Не все поля формы заполнены!</p>
+      </div>
       <button class="close"></button>
     </div>
 
