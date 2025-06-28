@@ -1,0 +1,7 @@
+.tools .dropdown__content button {
+  background-color: white;
+}
+
+.tools .dropdown__content {
+  background-color: var(--bg-footer--opacity95);
+}

@@ -326,15 +326,10 @@ const onLoaded = () => {
       }
     })
 
-    console.log(`countChecked = ${countChecked}`)
-
     listCheckbox.forEach((checkbox) => {
       if (countChecked == 3 && !checkbox.checked) {
-        console.log(checkbox)
-        console.log(`(countChecked == 3 && !checkbox.checked)`)
         checkbox.disabled = true
       } else {
-        console.log('else')
         checkbox.disabled = false
       }
     })
