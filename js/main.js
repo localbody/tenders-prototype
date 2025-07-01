@@ -259,6 +259,23 @@ const onLoaded = () => {
     button.addEventListener('click', onClickStepCurrent)
   })
 
+  // data-action = "paste"
+
+  const listButtonPaste = document.querySelectorAll('[data-action="paste"]')
+
+  const onClickButtonPaste = async (event) => {
+    const text = await navigator.clipboard.readText()
+    event.target.closest('.field').querySelector('input').value = text
+  }
+
+  listButtonPaste.forEach((button) => {
+    //
+
+    button.addEventListener('click', onClickButtonPaste)
+  })
+
+  // END data-action = "paste"
+
   continueStepDuration()
 }
 

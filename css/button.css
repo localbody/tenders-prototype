@@ -1,0 +1,67 @@
+button {
+  cursor: pointer;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  box-shadow: var(--shadow-sm);
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.5em 1em;
+}
+
+button[data-action='open-url'] {
+  text-decoration: underline;
+}
+
+button[data-action='open-url']::after {
+  content: '';
+  width: 1em;
+  height: 1em;
+  background-image: url(../images/link.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+button[data-action='paste'] {
+  width: 2em;
+  height: 2em;
+  background-image: url(../images/paste.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 0.15em;
+  bottom: 0.15em;
+  filter: contrast(0.5);
+}
+
+.button--flat {
+  box-shadow: none;
+}
+
+.button--next {
+  padding: 0.5em 2em;
+  background-color: #3498db;
+  color: var(--text-white);
+}
+
+.button--info {
+  position: relative;
+}
+
+.button--info::after {
+  content: 'ⓘ';
+  font-size: 0.75em;
+  position: absolute;
+  top: -0.25em;
+  right: -1em;
+  color: var(--text-white);
+  background-color: var(--bg-green);
+  border-radius: 2em;
+  padding: 0.1em;
+}

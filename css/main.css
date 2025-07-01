@@ -11,6 +11,8 @@
 @import url(./dropdown.css);
 @import url(./tools.css);
 @import url(./step.css);
+@import url(./button.css);
+@import url(./input.css);
 
 html,
 body {
@@ -81,66 +83,11 @@ hr {
   background-color: var(--table-striped);
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  box-shadow: var(--shadow-sm);
-  border-radius: 0.5em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
-  padding: 0.5em 1em;
-}
-
-button[data-action='open-url'] {
-  text-decoration: underline;
-}
-
-button[data-action='open-url']::after {
-  content: '';
-  width: 1em;
-  height: 1em;
-  background-image: url(../images/link.svg);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 .underline {
   text-decoration: underline;
 }
 
-.button--info {
-  position: relative;
-}
-
-.button--info::after {
-  content: 'ⓘ';
-  font-size: 0.75em;
-  position: absolute;
-  top: -0.25em;
-  right: -1em;
-  color: var(--text-white);
-  background-color: var(--bg-green);
-  border-radius: 2em;
-  padding: 0.1em;
-}
-
 .text--white {
-  color: var(--text-white);
-}
-
-.button--flat {
-  box-shadow: none;
-}
-
-.button--next {
-  padding: 0.5em 2em;
-  background-color: #3498db;
   color: var(--text-white);
 }
 
