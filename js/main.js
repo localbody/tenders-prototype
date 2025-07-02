@@ -1,6 +1,15 @@
 import { marked } from './marked.esm.js'
 
 const onLoaded = () => {
+  const countOperations = 4
+
+  const showMessage = (messageText) => {
+    const message = document.querySelector('.message')
+    const messageContent = message.querySelector('.message__content')
+
+    messageContent.innerHTML = messageText
+    message.classList.remove('message--hidden')
+  }
   //
   let namedWindow = null
 
@@ -20,7 +29,8 @@ const onLoaded = () => {
   })
 
   function openInNamedWindow(request) {
-    const synonym = document.querySelector('#synonym')?.textContent || ''
+    //
+    const synonym = document.querySelector('#synonym')?.textContent || 'трактор'
 
     const requestUrl = request.replace('%synonym%', synonym)
 
@@ -38,32 +48,6 @@ const onLoaded = () => {
       namedWindow.location.href = requestUrl
     }
   }
-
-  //
-  const buttonNextStep = document.querySelector('button.next')
-
-  const onClickButtonNextStep = () => {
-    const listResultText = document.querySelectorAll('.result__text')
-
-    let showError = false
-
-    listResultText.forEach((item) => {
-      item.classList.remove('error')
-
-      if (item.value == '') {
-        item.classList.add('error')
-        showError = true
-      }
-    })
-
-    if (showError) {
-      document.querySelector('.message').classList.remove('message--hidden')
-    } else {
-      document.querySelector('.message').classList.add('message--hidden')
-    }
-  }
-
-  buttonNextStep?.addEventListener('click', onClickButtonNextStep)
 
   const currentUrl = new URL(window.location.href)
   const searchParams = new URLSearchParams(currentUrl.search)
@@ -253,30 +237,137 @@ const onLoaded = () => {
     document.querySelector('.step--current')?.classList.remove('step--current')
 
     const step = button.closest('.step')
-    step?.classList.add('step--current')
+    step.classList.add('step--current')
   }
   listStepCurrent.forEach((button) => {
     button.addEventListener('click', onClickStepCurrent)
   })
 
-  // data-action = "paste"
-
-  const listButtonPaste = document.querySelectorAll('[data-action="paste"]')
+  // data-action="paste"
 
   const onClickButtonPaste = async (event) => {
     const text = await navigator.clipboard.readText()
     event.target.closest('.field').querySelector('input').value = text
   }
 
-  listButtonPaste.forEach((button) => {
-    //
+  const listButtonPaste = document.querySelectorAll('[data-action="paste"]')
 
+  listButtonPaste.forEach((button) => {
     button.addEventListener('click', onClickButtonPaste)
   })
 
-  // END data-action = "paste"
+  // END data-action="paste"
+
+  // data-action="prev"
+
+  // data-action="prev"
+  const listButtonPrev = document.querySelectorAll('[data-action="prev"]')
+
+  const onClickButtonPrev = (event) => {
+    const operation = event.target.closest('.operation')
+
+    const prevOperationId = +operation.dataset.operationId - 1
+
+    operation.classList.remove('operation--active')
+
+    document
+      .querySelector(`[data-operation-id="${prevOperationId}"]`)
+      .classList.remove('operation--complete')
+
+    document
+      .querySelector(`[data-operation-id="${prevOperationId}"]`)
+      .classList.add('operation--active')
+  }
+
+  listButtonPrev.forEach((button) => {
+    button.addEventListener('click', onClickButtonPrev)
+  })
+  // END data-action="prev"
+
+  // data-action="next"
+  const listButtonNext = document.querySelectorAll('[data-action="next"]')
+  const onClickButtonNext = (event) => {
+    const operation = event.target.closest('.operation')
+
+    const nextOperationId = +operation.dataset.operationId + 1
+
+    if (nextOperationId < countOperations) {
+      operation.classList.add('operation--complete')
+
+      document
+        .querySelector(`[data-operation-id="${nextOperationId}"]`)
+        .classList.add('operation--active')
+    } else {
+      showMessage(`<p>Больше нет операций по данной задаче!</p>`)
+    }
+  }
+
+  listButtonNext.forEach((button) => {
+    button.addEventListener('click', onClickButtonNext)
+  })
+  // END data-action="next"
+
+  // data-action="check3items"
+
+  // data-action="check3items"
+  const listCheckboxCheck3Items = document.querySelectorAll(
+    '[data-action="check3items"]',
+  )
+  const onChangeCheckbox = (event) => {
+    const listCheckbox = event.target
+      .closest('.fields')
+      .querySelectorAll('[data-action="check3items"]')
+
+    let countChecked = 0
+
+    listCheckbox.forEach((checkbox) => {
+      if (checkbox.checked) {
+        countChecked++
+      }
+    })
+
+    listCheckbox.forEach((checkbox) => {
+      if (countChecked == 3 && !checkbox.checked) {
+        checkbox.disabled = true
+      } else {
+        checkbox.disabled = false
+      }
+    })
+  }
+
+  listCheckboxCheck3Items.forEach((checkbox) => {
+    checkbox.addEventListener('change', onChangeCheckbox)
+  })
+
+  // END data-action="check3items"
 
   continueStepDuration()
 }
 
 document.addEventListener('DOMContentLoaded', onLoaded)
+
+// //
+// const buttonNextStep = document.querySelector('button.next')
+
+// const onClickButtonNextStep = () => {
+//   const listResultText = document.querySelectorAll('.result__text')
+
+//   let showError = false
+
+//   listResultText.forEach((item) => {
+//     item.classList.remove('error')
+
+//     if (item.value == '') {
+//       item.classList.add('error')
+//       showError = true
+//     }
+//   })
+
+//   if (showError) {
+//     document.querySelector('.message').classList.remove('message--hidden')
+//   } else {
+//     document.querySelector('.message').classList.add('message--hidden')
+//   }
+// }
+
+// buttonNextStep?.addEventListener('click', onClickButtonNextStep)

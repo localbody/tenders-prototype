@@ -27,24 +27,11 @@ button[data-action='open-url']::after {
   background-repeat: no-repeat;
 }
 
-button[data-action='paste'] {
-  width: 2em;
-  height: 2em;
-  background-image: url(../images/paste.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  right: 0.15em;
-  bottom: 0.15em;
-  filter: contrast(0.5);
-}
-
 .button--flat {
   box-shadow: none;
 }
 
-.button--next {
+button.next {
   padding: 0.5em 2em;
   background-color: #3498db;
   color: var(--text-white);
@@ -64,4 +51,27 @@ button[data-action='paste'] {
   background-color: var(--bg-green);
   border-radius: 2em;
   padding: 0.1em;
+}
+
+button[data-action='paste'] {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background-image: url(../images/paste.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  right: 0.15em;
+  bottom: 0.15em;
+}
+
+.operation--complete .buttons {
+  display: none;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

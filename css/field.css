@@ -1,0 +1,14 @@
+.fields {
+  display: grid;
+  gap: 1em;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  position: relative;
+}
+
+.field--intup-paste {
+  position: absolute;
+}

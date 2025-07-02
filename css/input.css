@@ -1,3 +1,18 @@
 .field--input-paste input {
   padding-right: 2.5em;
 }
+input[type='text'] {
+  padding: 0.5em;
+  color: var(--text-green);
+  background-color: var(--bg-yellow-alpha);
+  border: 1px solid var(--border-black);
+  flex-grow: 1;
+}
+
+.field--input-paste input[type='text'] {
+  padding-right: 2.5em;
+}
+
+input[type='checkbox']:disabled {
+  filter: invert();
+}
