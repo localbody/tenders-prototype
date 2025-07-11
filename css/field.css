@@ -1,7 +1,7 @@
 .fields {
   display: grid;
   gap: 1em;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .field {
@@ -9,6 +9,6 @@
   position: relative;
 }
 
-.field--intup-paste {
-  position: absolute;
+.field--input-paste {
+  /* position: absolute; */
 }

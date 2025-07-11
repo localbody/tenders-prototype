@@ -70,10 +70,12 @@ const onLoaded = () => {
     return `${HH}:${MM}`
   }
 
-  const popupsData = {
+  const popupsContent = {
     1: `
-Тут будет подробная информация о Задаче: тут будут слова и фразы: "нажмите", "откройте", "запустите", "поисковая строка" ... 
-## Задача: "Изучение Заявки (запрос для рассылки)"
+# Задача: "Изучение Заявки (запрос для рассылки)"
+---
+## Тут будет подробная информация о Задаче: тут будут слова и фразы: "нажмите", "откройте", "запустите", "поисковая строка" и так далее.
+---
 1. Прочтите и поймите Шаблон №А
 2. Введите в Шаблон №Б имя товара
 3. Введите имя товара в Интернет-Браузер и находите Синонимы имени товара
@@ -83,6 +85,7 @@ const onLoaded = () => {
 7. Переведите каждый Синоним на язык страны Поиска (Шаблон №А)
 8. Внесите результаты перевода в Шаблон №В
 9. Завершить Задачу
+---
 `,
   }
 
@@ -105,23 +108,41 @@ const onLoaded = () => {
     // spanStepDuration.textContent = formatMinutesToHHMM(timeDurationMinutes)
   }
 
-  const popup = document.querySelector('.popup')
-  const popupContent = document.querySelector('.popup .content')
+  const listPopups = document.querySelectorAll('.popup')
 
-  const buttonsPopupShow = document.querySelectorAll('button.popup-show')
+  listPopups.forEach((popup) => {})
 
-  const onClickButtonPopupShow = function (event) {
-    const target = event.target
+  const buttonsPopupOpen = document.querySelectorAll(
+    '[data-action="popup-open"]',
+  )
 
-    const popupDataId = target.dataset.popup
+  const openPopup = (popupName, popupContentId = null) => {
+    //
+    const popup = document.querySelector(`[data-popup="${popupName}"]`)
 
-    popupContent.innerHTML = marked.parse(popupsData[popupDataId])
+    if (popupContentId) {
+      const popupContent = popup.querySelector('.popup__content')
+
+      popupContent.innerHTML = marked.parse(popupsContent[popupContentId])
+    }
 
     popup.classList.add('popup--show')
   }
 
-  buttonsPopupShow.forEach((item) => {
-    item.addEventListener('click', onClickButtonPopupShow)
+  const onClickButtonPopupOpen = function (event) {
+    const target = event.target
+
+    console.log(target)
+
+    const popupName = target.dataset.popupName
+    const popupContentId = target.dataset.popupContentId
+
+    console.log(popupContentId)
+    openPopup(popupName, popupContentId)
+  }
+
+  buttonsPopupOpen.forEach((item) => {
+    item.addEventListener('click', onClickButtonPopupOpen)
   })
 
   const onClickDocument = function (event) {
@@ -167,13 +188,15 @@ const onLoaded = () => {
 
   buttonMessageClose.addEventListener('click', onClickButtonMessageClose)
 
-  const buttonPopupClose = document.querySelector('.popup button.close')
+  const listButtonPopupClose = document.querySelectorAll('.popup button.close')
 
   const onClickButtonPopupClose = () => {
     document.querySelector('.popup--show').classList.remove('popup--show')
   }
 
-  buttonPopupClose.addEventListener('click', onClickButtonPopupClose)
+  listButtonPopupClose.forEach((buttonPopupClose) => {
+    buttonPopupClose.addEventListener('click', onClickButtonPopupClose)
+  })
 
   // dropdown
   const listDropdownToggles = document.querySelectorAll('.dropdown__toggle')
@@ -270,13 +293,14 @@ const onLoaded = () => {
 
     operation.classList.remove('operation--active')
 
-    document
-      .querySelector(`[data-operation-id="${prevOperationId}"]`)
-      .classList.remove('operation--complete')
+    const operationPrev = document.querySelector(
+      `[data-operation-id="${prevOperationId}"]`,
+    )
 
-    document
-      .querySelector(`[data-operation-id="${prevOperationId}"]`)
-      .classList.add('operation--active')
+    operationPrev.classList.remove('operation--complete')
+    operationPrev.querySelector('.operation__body').hidden = false
+
+    operationPrev.classList.add('operation--active')
   }
 
   listButtonPrev.forEach((button) => {
@@ -292,13 +316,15 @@ const onLoaded = () => {
     const nextOperationId = +operation.dataset.operationId + 1
 
     if (nextOperationId < countOperations) {
+      operation.classList.remove('operation--active')
       operation.classList.add('operation--complete')
+      operation.querySelector('.operation__body').hidden = true
 
       document
         .querySelector(`[data-operation-id="${nextOperationId}"]`)
         .classList.add('operation--active')
     } else {
-      showMessage(`<p>Больше нет операций по данной задаче!</p>`)
+      openPopup('task-complete')
     }
   }
 
@@ -340,6 +366,38 @@ const onLoaded = () => {
   })
 
   // END data-action="check3items"
+
+  // want-stop-task
+
+  const checkboxWantStopTask = document.querySelector('#want-stop-task')
+
+  checkboxWantStopTask?.addEventListener('change', () => {
+    // debugger
+    document.querySelector('#resume-want-stop-task').hidden =
+      !document.querySelector('#resume-want-stop-task').hidden
+  })
+
+  // END want-stop-task
+
+  // .operation
+
+  const listOperations = document.querySelectorAll('.operation')
+
+  const onClickOperation = (event) => {
+    // если не кликнули по ДАЛЕЕ
+    if (event.target.matches('button.next')) return
+
+    if (event.currentTarget.classList.contains('operation--complete')) {
+      event.currentTarget.querySelector('.operation__body').hidden =
+        !event.currentTarget.querySelector('.operation__body').hidden
+    }
+  }
+
+  listOperations.forEach((operation) => {
+    operation.addEventListener('click', onClickOperation)
+  })
+
+  // END .operation
 
   continueStepDuration()
 }

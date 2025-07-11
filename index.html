@@ -8,11 +8,43 @@
   </head>
 
   <body>
-    <div class="popup">
-      <div class="body">
+    <div class="popup" data-popup="task-description">
+      <div class="popup__body">
         <button class="close"></button>
-        <div class="wrapper">
-          <div class="content"></div>
+        <div class="popup__wrapper">
+          <div class="popup__content"></div>
+          <div class="block">
+            <div class="checkbox h1">
+              <input type="checkbox" name="" id="want-stop-task" />
+              <label for="want-stop-task">задачу выполнить невозможно</label>
+            </div>
+
+            <div class="grid" id="resume-want-stop-task" hidden>
+              <fieldset>
+                <legend>укажите причину</legend>
+                <textarea name="" id="" rows="5"></textarea>
+              </fieldset>
+              <button class="button stop-task">
+                Прервать выполнение задачи
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" data-popup="task-complete">
+      <div class="popup__body">
+        <button class="close"></button>
+        <div class="popup__wrapper">
+          <div class="popup__content">
+            <div class="block">
+              <h1>
+                Задача: "Изучение Заявки (запрос для рассылки)" выполнена!
+              </h1>
+              <button class="next">Перейти к следующей задаче</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -21,8 +53,10 @@
       <div class="header">
         <span class="title">
           <button
-            class="button--info button--flat text--white popup-show"
-            data-popup="1"
+            class="button--info button--flat text--white"
+            data-action="popup-open"
+            data-popup-content-id="1"
+            data-popup-name="task-description"
           >
             Задача: "Изучение Заявки (запрос для рассылки)"
           </button>
@@ -68,175 +102,338 @@
 
           <div
             data-operation-id="0"
-            class="block shadow operation operation--complete"
-          >
-            <h2>Уже выполненая операция<br />с какими-то данными</h2>
-            <div class="buttons">
-              <button class="prev" data-action="prev">вернуться</button>
-              <button class="next" data-action="next">далее</button>
-            </div>
-          </div>
-
-          <div
-            data-operation-id="1"
-            class="block shadow operation operation--complete"
-          >
-            <h2>Уже выполненая операция<br />с какими-то данными</h2>
-            <div class="buttons">
-              <button class="prev" data-action="prev">вернуться</button>
-              <button class="next" data-action="next">далее</button>
-            </div>
-          </div>
-
-          <div
-            data-operation-id="2"
             class="block shadow operation operation--active"
           >
-            <h2>
+            <h2 class="operation__title">Обязательное название операции</h2>
+            <div class="operation__body">
+              <div class="operation__content">
+                <div class="columns">
+                  <fieldset>
+                    <legend>Поле для ввода</legend>
+                    <input type="text" name="" id="text-field1" />
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>Введите число</legend>
+                    <input type="number" name="" id="" />
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>Вы понимаете значение "слова"?</legend>
+                    <div class="radiobox">
+                      <input type="radio" name="isUnderstanding" id="value1" />
+                      <label for="value1">понимаю</label>
+                    </div>
+                    <div class="radiobox">
+                      <input type="radio" name="isUnderstanding" id="value2" />
+                      <label for="value2">не понимаю</label>
+                    </div>
+                    <div class="radiobox">
+                      <input type="radio" name="isUnderstanding" id="value3" />
+                      <label for="value3">плохо понимаю</label>
+                    </div>
+                    <div class="radiobox">
+                      <input type="radio" name="isUnderstanding" id="value4" />
+                      <label for="value4"
+                        >не понимаю, но зачем я искал синонимы?</label
+                      >
+                    </div>
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>Какая погода за окном?</legend>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        name="weather"
+                        id="weather-value1"
+                      />
+                      <label for="weather-value1">Тепло</label>
+                    </div>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        name="weather"
+                        id="weather-value2"
+                      />
+                      <label for="weather-value2">Прохладно</label>
+                    </div>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        name="weather"
+                        id="weather-value3"
+                      />
+                      <label for="weather-value3">Дождь</label>
+                    </div>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        name="weather"
+                        id="weather-value4"
+                      />
+                      <label for="weather-value4">Снег</label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>Укажите причину:</legend>
+                    <textarea name="" id="" rows="5">
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui saepe reprehenderit adipisci nesciunt blanditiis dolorum quibusdam velit, corporis explicabo rem deserunt impedit nostrum, sequi temporibus id minima natus cumque consequuntur maxime perspiciatis maiores fuga asperiores aut corrupti? Fugit repellendus quisquam distinctio maxime qui quam ut, quidem, non quo quis assumenda. Mollitia ipsum autem, et suscipit quibusdam minima iste tenetur omnis ex sequi, dolor veniam.
+                    </textarea>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="operation__buttons flex--space-between">
+                <button class="prev" data-action="prev">вернуться</button>
+                <button class="next" data-action="next">далее</button>
+              </div>
+            </div>
+          </div>
+
+          <div data-operation-id="1" class="block shadow operation">
+            <h2 class="operation__title">Операция с другим названием</h2>
+            <div class="operation__body">
+              <div class="operation__content">
+                <div class="columns">
+                  <fieldset>
+                    <legend>Вы понимаете значение "слова"?</legend>
+                    <div class="radiobox">
+                      <input type="radio" name="isUnderstanding" id="value01" />
+                      <label for="value01">понимаю</label>
+                    </div>
+                    <div class="radiobox">
+                      <input type="radio" name="isUnderstanding" id="value02" />
+                      <label for="value02">не понимаю</label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>Какая погода за окном?</legend>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        name="weather"
+                        id="weather-value01"
+                      />
+                      <label for="weather-value01">Тепло</label>
+                    </div>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        name="weather"
+                        id="weather-value02"
+                      />
+                      <label for="weather-value02">Прохладно</label>
+                    </div>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        name="weather"
+                        id="weather-value03"
+                      />
+                      <label for="weather-value03">Дождь</label>
+                    </div>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        name="weather"
+                        id="weather-value04"
+                      />
+                      <label for="weather-value04">Снег</label>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="operation__buttons flex--space-between">
+                <button class="prev" data-action="prev">вернуться</button>
+                <button class="next" data-action="next">далее</button>
+              </div>
+            </div>
+          </div>
+
+          <div data-operation-id="2" class="block shadow operation">
+            <h2 class="operation__title">
               найдите <b>3</b> синонима слова "<b id="synonym"
                 >?synonym из url</b
               >" и вставьте их в поля ниже.
             </h2>
 
-            <div class="columns">
-              <div class="width--full block shadow step">
-                <button
-                  data-step="current"
-                  data-action="open-url"
-                  data-url="https://sinonim.org/s/%synonym%"
-                >
-                  синонимы на sinonim.org
-                </button>
+            <div class="operation__body">
+              <div class="operation__content">
+                <div class="columns">
+                  <div class="width--full block shadow step">
+                    <button
+                      data-step="current"
+                      data-action="open-url"
+                      data-url="https://sinonim.org/s/%synonym%"
+                    >
+                      синонимы на sinonim.org
+                    </button>
 
-                <div class="fields">
-                  <div class="field field--input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
+                    <div class="fields">
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                    </div>
                   </div>
-                  <div class="field input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
+
+                  <div class="width--full block shadow step">
+                    <button
+                      data-step="current"
+                      data-action="open-url"
+                      data-url="https://text.ru/synonym/%synonym%"
+                    >
+                      синонимы на text.ru
+                    </button>
+                    <div class="fields">
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                    </div>
                   </div>
-                  <div class="field input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
+
+                  <div class="width--full block shadow step">
+                    <button
+                      data-step="current"
+                      data-action="open-url"
+                      data-url="https://kartaslov.ru/синонимы-к-слову/%synonym%"
+                    >
+                      синонимы на kartaslov.ru
+                    </button>
+                    <div class="fields">
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                      <div class="field field--input-paste">
+                        <input class="text" type="text" value="" />
+                        <button
+                          class="button--flat"
+                          data-action="paste"
+                        ></button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div class="width--full block shadow step">
-                <button
-                  data-step="current"
-                  data-action="open-url"
-                  data-url="https://text.ru/synonym/%synonym%"
-                >
-                  синонимы на text.ru
-                </button>
-                <div class="fields">
-                  <div class="field field--input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
-                  </div>
-                  <div class="field input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
-                  </div>
-                  <div class="field input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
-                  </div>
-                </div>
+              <div class="operation__buttons flex--space-between">
+                <button class="prev" data-action="prev">вернуться</button>
+                <button class="next" data-action="next">далее</button>
               </div>
-
-              <div class="width--full block shadow step">
-                <button
-                  data-step="current"
-                  data-action="open-url"
-                  data-url="https://kartaslov.ru/синонимы-к-слову/%synonym%"
-                >
-                  синонимы на kartaslov.ru
-                </button>
-                <div class="fields">
-                  <div class="field field--input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
-                  </div>
-                  <div class="field input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
-                  </div>
-                  <div class="field input-paste">
-                    <input class="text" type="text" value="" />
-                    <button class="button--flat" data-action="paste"></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="buttons">
-              <button class="prev" data-action="prev">вернуться</button>
-              <button class="next" data-action="next">далее</button>
             </div>
           </div>
 
           <div data-operation-id="3" class="block shadow operation">
-            <h2>отметьте <b>3</b> самых подходящих синонима</h2>
+            <h2 class="operation__title">
+              отметьте <b>3</b> самых подходящих синонима
+            </h2>
 
-            <ul class="block fields">
-              <li class="checkbox">
-                <input
-                  data-action="check3items"
-                  type="checkbox"
-                  name="synonym1"
-                  id="synonym1"
-                  value="тягач"
-                />
-                <label for="synonym1">тягач</label>
-              </li>
-              <li class="checkbox">
-                <input
-                  data-action="check3items"
-                  type="checkbox"
-                  name="synonym2"
-                  id="synonym2"
-                  value="Стальной пахарь"
-                />
-                <label for="synonym2">стальной пахарь</label>
-              </li>
-              <li class="checkbox">
-                <input
-                  data-action="check3items"
-                  type="checkbox"
-                  name="synonym3"
-                  id="synonym3"
-                  value="бульдозер"
-                />
-                <label for="synonym3">бульдозер</label>
-              </li>
-              <li class="checkbox">
-                <input
-                  data-action="check3items"
-                  type="checkbox"
-                  name="synonym4"
-                  id="synonym4"
-                  value="железный конь"
-                />
-                <label for="synonym4">железный конь</label>
-              </li>
-              <li class="checkbox">
-                <input
-                  data-action="check3items"
-                  type="checkbox"
-                  name="synonym5"
-                  id="synonym5"
-                  value="локомотив"
-                />
-                <label for="synonym5">локомотив</label>
-              </li>
-            </ul>
-
-            <div class="buttons">
-              <button class="prev" data-action="prev">вернуться</button>
-              <button class="next" data-action="next">далее</button>
+            <div class="operation__body">
+              <div class="operation__content">
+                <ul class="block fields">
+                  <li class="checkbox">
+                    <input
+                      data-action="check3items"
+                      type="checkbox"
+                      name="synonym1"
+                      id="synonym1"
+                      value="тягач"
+                    />
+                    <label for="synonym1">тягач</label>
+                  </li>
+                  <li class="checkbox">
+                    <input
+                      data-action="check3items"
+                      type="checkbox"
+                      name="synonym2"
+                      id="synonym2"
+                      value="Стальной пахарь"
+                    />
+                    <label for="synonym2">стальной пахарь</label>
+                  </li>
+                  <li class="checkbox">
+                    <input
+                      data-action="check3items"
+                      type="checkbox"
+                      name="synonym3"
+                      id="synonym3"
+                      value="бульдозер"
+                    />
+                    <label for="synonym3">бульдозер</label>
+                  </li>
+                  <li class="checkbox">
+                    <input
+                      data-action="check3items"
+                      type="checkbox"
+                      name="synonym4"
+                      id="synonym4"
+                      value="железный конь"
+                    />
+                    <label for="synonym4">железный конь</label>
+                  </li>
+                  <li class="checkbox">
+                    <input
+                      data-action="check3items"
+                      type="checkbox"
+                      name="synonym5"
+                      id="synonym5"
+                      value="локомотив"
+                    />
+                    <label for="synonym5">локомотив</label>
+                  </li>
+                </ul>
+              </div>
+              <div class="operation__buttons flex--space-between">
+                <button class="prev" data-action="prev">вернуться</button>
+                <button class="next" data-action="next">далее</button>
+              </div>
             </div>
           </div>
         </div>

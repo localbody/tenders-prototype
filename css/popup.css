@@ -22,12 +22,12 @@
   transition: 0.3s opacity ease;
 }
 
-.popup .body {
+.popup__body {
   position: relative;
   padding: 1em;
 }
 
-.popup .wrapper {
+.popup__wrapper {
   background-color: var(--bg-content);
   padding: 2em;
   border-radius: 1em;
@@ -37,7 +37,7 @@
   overflow: hidden;
 }
 
-.popup .content {
+.popup__content {
   max-height: 80vh;
   overflow-y: auto;
 }

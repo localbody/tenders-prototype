@@ -26,6 +26,13 @@ body {
   color: var(--text-black);
   line-height: 1.5em;
   background-color: var(--white);
+  box-sizing: border-box;
+}
+
+fieldset {
+  padding: 0;
+  width: 100%;
+  display: grid;
 }
 
 h1 {
@@ -45,10 +52,12 @@ h4 {
   font-weight: normal;
 }
 
+.h1,
 h1 {
   font-size: 1.3em;
 }
 
+.h2,
 h2 {
   font-size: 1.2em;
 }
@@ -84,6 +93,25 @@ hr {
   border: none;
   height: 1px;
   background-color: var(--table-striped);
+}
+
+textarea {
+  padding: 0.5em;
+  resize: none;
+}
+
+[hidden],
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .underline {
@@ -135,6 +163,13 @@ hr {
   padding: 1em;
   border-radius: 0.5em;
   background-color: var(--bg-white);
+  display: grid;
+  gap: 1em;
+  /* justify-items: start; */
+}
+
+.grid {
+  width: 100%;
   display: grid;
   gap: 1em;
   justify-items: start;
@@ -251,17 +286,26 @@ input.error {
   border-color: var(--bg-red);
 }
 
-.checkbox {
+.checkbox,
+.radiobox {
   display: flex;
   align-items: center;
   gap: 0.5em;
 }
 
-.checkbox input[type='checkbox'] {
-  width: 1.5em;
-  height: 1.5em;
+.checkbox input[type='checkbox'],
+.radiobox input[type='radio'] {
+  width: 1em;
+  height: 1em;
 }
 
 .width--full {
   width: 100%;
+}
+
+.flex--space-between {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

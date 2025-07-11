@@ -12,10 +12,24 @@
 }
 
 .operation--complete {
-  pointer-events: none;
   filter: opacity(0.5);
 }
 
-.operation[data-operation-id='0'] button.prev {
-  display: none;
+.operation__body {
+  display: grid;
+  gap: 1em;
+}
+
+.operation--complete .operation__body {
+  pointer-events: none;
+}
+
+.operation__content {
+  display: grid;
+  gap: 1em;
+}
+
+.operation:first-child .operation__buttons button.prev {
+  visibility: hidden;
+  pointer-events: none;
 }
