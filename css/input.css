@@ -1,6 +1,8 @@
 .field--input-paste input {
   padding-right: 2.5em;
 }
+
+input[type='number'],
 input[type='text'] {
   padding: 0.5em;
   color: var(--text-green);

@@ -7,6 +7,7 @@
 .field {
   display: flex;
   position: relative;
+  width: 100%;
 }
 
 .field--input-paste {

@@ -33,6 +33,18 @@ fieldset {
   padding: 0;
   width: 100%;
   display: grid;
+  gap: 1em;
+}
+
+.legend,
+fieldset legend {
+  background-color: var(--bg-grey-light);
+  padding: 0 0.5em;
+  width: fit-content;
+}
+
+fieldset legend {
+  margin-bottom: 1em;
 }
 
 h1 {

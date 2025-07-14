@@ -1,7 +1,7 @@
 import { marked } from './marked.esm.js'
 
 const onLoaded = () => {
-  const countOperations = 4
+  const countOperations = 6
 
   const showMessage = (messageText) => {
     const message = document.querySelector('.message')
