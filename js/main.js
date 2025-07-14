@@ -375,6 +375,10 @@ const onLoaded = () => {
     // debugger
     document.querySelector('#resume-want-stop-task').hidden =
       !document.querySelector('#resume-want-stop-task').hidden
+
+    if (checkboxWantStopTask.checked) {
+      document.querySelector('#resume-want-stop-task textarea').focus()
+    }
   })
 
   // END want-stop-task
