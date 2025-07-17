@@ -1,7 +1,9 @@
 import { marked } from './marked.esm.js'
 
 const onLoaded = () => {
-  const countOperations = 6
+  const countOperations = 5
+
+  const phrase = 'эпоксидная смола'
 
   const showMessage = (messageText) => {
     const message = document.querySelector('.message')
@@ -21,18 +23,23 @@ const onLoaded = () => {
     event.preventDefault()
     const url = event.currentTarget.dataset.url
 
-    openInNamedWindow(url)
+    const postJSON = event.currentTarget.dataset.postJson
+
+    if (postJSON) {
+      //
+      openInNamedWindow(url, postJSON)
+    } else {
+      openInNamedWindow(url)
+    }
   }
 
   listActionOpenUrl.forEach((item) => {
     item.addEventListener('click', onClickOpenNamedWindow)
   })
 
-  function openInNamedWindow(request) {
+  function openInNamedWindow(request, postJSON = null) {
     //
-    const synonym = document.querySelector('#synonym')?.textContent || 'трактор'
-
-    const requestUrl = request.replace('%synonym%', synonym)
+    const requestUrl = request.replace('%phrase%', phrase)
 
     const windowName = 'myBrowser' // уникальное имя окна
     const windowFeatures = `left=${window.innerWidth + 10},top=0,width=${
@@ -47,21 +54,43 @@ const onLoaded = () => {
       namedWindow.focus()
       namedWindow.location.href = requestUrl
     }
+
+    if (postJSON) {
+      const post = JSON.parse(postJSON)
+      const params = post.params
+      const form = document.createElement('form')
+      form.method = 'POST'
+      form.action = post.url
+      form.target = 'myBrowser' // имя окна должно совпадать!
+
+      // добавляем поля POST-запроса
+      for (const key in params) {
+        if (params.hasOwnProperty(key)) {
+          const input = document.createElement('input')
+          input.type = 'hidden'
+          input.name = key
+          input.value = params[key]
+          form.appendChild(input)
+        }
+      }
+      document.body.appendChild(form)
+      // debugger
+      form.submit()
+      document.body.removeChild(form)
+    }
   }
 
   const currentUrl = new URL(window.location.href)
   const searchParams = new URLSearchParams(currentUrl.search)
-  const searchString = searchParams.get('synonym') || '?synonym из url'
+  const searchString = searchParams.get('phrase') || phrase
 
-  const spanSynonym = document.querySelector('#synonym')
-
-  if (spanSynonym) {
-    spanSynonym.textContent = searchString
-  }
-
-  console.log(
-    marked.parse('# Marked in the browser\n\nRendered by **marked**.'),
+  const listReplacementPhrase = document.querySelectorAll(
+    '[data-replacement="phrase"]',
   )
+
+  listReplacementPhrase.forEach((item) => {
+    item.textContent = phrase
+  })
 
   const formatMinutesToHHMM = (minutes) => {
     const HH = (~~(minutes / 60)).toString().padStart(2, '0')
@@ -86,6 +115,7 @@ const onLoaded = () => {
 8. Внесите результаты перевода в Шаблон №В
 9. Завершить Задачу
 ---
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi temporibus, tempora distinctio deleniti dignissimos dolorum, expedita numquam nemo velit minima nulla necessitatibus nihil, voluptate magni quos earum soluta dolorem qui voluptas est. Quia, sed labore nam doloremque quibusdam architecto, quasi atque nemo nostrum suscipit vero! Aliquam mollitia neque reiciendis delectus. Laudantium, corrupti! Magni non ipsa itaque amet! Vel beatae facilis quo, deleniti accusamus tempore, impedit aspernatur, aperiam placeat eius doloribus doloremque quidem dicta ducimus! Repudiandae tempora necessitatibus accusamus. Eaque, perferendis nostrum minima modi quas dolor! Asperiores similique quidem doloremque natus voluptates! Porro cum suscipit asperiores harum dolores explicabo odio sit totam laudantium eveniet nam fugit nesciunt nihil laborum eaque vitae atque, quos nisi illo a eum delectus repudiandae? Optio laudantium tempora magni aut eius deserunt eos quia, at ipsum ullam commodi, repellat assumenda similique. Repudiandae deserunt veniam, minus accusantium quod quo dignissimos laborum, ea et maxime doloremque laudantium eaque sequi mollitia, quisquam expedita at animi quidem. Excepturi, fugiat? Aliquam asperiores saepe voluptatem ducimus nemo sed reprehenderit, nisi eius error tempora temporibus! Sapiente omnis enim molestias earum. Omnis aspernatur, ipsa odit eveniet exercitationem possimus numquam dolores accusamus vero ipsam neque deleniti fugit magnam, incidunt consequuntur, amet suscipit autem porro aliquid dicta laudantium sed nostrum iste facere. Eveniet voluptas quam officia voluptatem quos nulla laborum sed doloribus ullam rem alias molestias nemo reprehenderit similique soluta ab repellendus, odio culpa at aperiam quo. Repellendus minus aliquid accusantium dolores doloremque reprehenderit illum a officia officiis, minima neque consectetur exercitationem sed et esse eius nisi quod omnis earum itaque accusamus qui aspernatur! Consectetur minus assumenda voluptatem ipsam exercitationem possimus quod non in vero, amet quis necessitatibus nesciunt totam itaque eius eligendi ipsa rerum natus adipisci, tempora doloribus, pariatur magnam culpa facilis. Sint odio dolorum officiis esse debitis minima commodi a consectetur voluptatem quisquam nesciunt, vitae sequi explicabo libero accusantium? Magni adipisci veniam commodi! Quia veritatis deserunt, sint, culpa nisi quasi adipisci libero rem et minima perspiciatis quos modi commodi mollitia cupiditate? Nisi qui totam dolorem illo ad nulla blanditiis distinctio aliquid tempora! Est voluptate incidunt tenetur architecto doloremque! Animi mollitia placeat molestias, rem labore quia reiciendis vero doloremque, suscipit ad corrupti cupiditate deleniti necessitatibus nihil velit aperiam, est tempore quo praesentium in repellendus ut beatae! Eveniet rerum sint tenetur necessitatibus beatae, reiciendis voluptatem pariatur, perspiciatis aliquid quibusdam quae. Placeat ab accusantium ipsum ex facere labore rerum veniam id. Voluptatibus error dignissimos aliquam aperiam suscipit accusamus, nobis animi, a deserunt, perferendis enim debitis consequatur reiciendis velit quis quae eos voluptas? Libero eveniet perferendis facilis ipsum doloribus dignissimos voluptates, eaque eos rerum vel provident veniam quidem quo consequatur ex nihil nisi soluta dicta, esse, nam magnam. Ipsa ratione iure, aliquid nemo velit, dolorum consequuntur asperiores enim explicabo autem, harum nihil dolorem necessitatibus quas. Nulla distinctio possimus, quis corporis delectus veniam animi fugit dolorum odit iusto at provident, inventore vel eos doloribus ut nobis laboriosam aperiam autem suscipit. Debitis maxime, molestias explicabo modi est dolore repellendus odit illo incidunt praesentium perferendis nesciunt voluptatibus iusto voluptas cumque autem tempora perspiciatis ipsa tempore numquam suscipit commodi quam porro. Culpa, modi illo sint, aliquid sequi placeat aliquam quia ipsam, amet vel cumque ipsa unde! Porro repellat, inventore quibusdam eligendi beatae ipsam. Aut ea recusandae vero, atque illo amet asperiores ducimus corporis nesciunt quae necessitatibus consectetur assumenda aspernatur deleniti, architecto ullam facilis nihil commodi consequuntur quisquam eaque similique dolorem itaque. Alias possimus atque excepturi nobis facilis iste eos a, ad voluptates error quod quam iusto ex dignissimos velit quasi obcaecati sunt harum, officia nam reprehenderit fuga. Odio cupiditate ipsa eum ex minus architecto incidunt. Dolores a sed quaerat repellendus animi, id ut placeat quae vel reiciendis hic blanditiis porro excepturi laudantium explicabo ipsa illo iure, quas corporis, illum deleniti natus voluptate qui? Exercitationem incidunt esse eaque numquam provident recusandae, hic odio impedit asperiores ab nostrum voluptatum dolorem culpa ratione deserunt, dolor sapiente, cupiditate vitae mollitia quibusdam. Quia eaque ad eius reiciendis deserunt quos, amet quas voluptatibus non dolores, facere nulla laborum! Laborum magni voluptates quod aperiam facere beatae atque temporibus consequuntur autem ad aut mollitia libero fugit, nulla impedit ullam quaerat soluta tenetur fugiat molestias. Non, culpa repellendus est sunt, velit eum veritatis molestiae commodi porro dicta laudantium. Quod harum aut, assumenda illo neque praesentium blanditiis nesciunt excepturi id quo distinctio laborum atque aspernatur quae deserunt quaerat rem, corrupti modi eius eum deleniti expedita mollitia ullam. Voluptate odit accusantium tenetur sequi repellendus, quo impedit in. Ab accusamus exercitationem necessitatibus ex nostrum veritatis labore ullam minima ea excepturi nihil deleniti ducimus molestiae saepe perspiciatis iure quod consectetur voluptatem odit libero nemo, voluptate soluta nisi. Commodi adipisci modi veritatis sed animi enim architecto quas sint repellendus porro! Asperiores nisi dignissimos quod fuga officia tenetur magni eum nemo similique amet! Nostrum ipsum quibusdam eveniet. Laboriosam laudantium iste in tenetur magni. Soluta culpa accusamus ipsa consectetur accusantium corporis, pariatur dolores eius, neque quam alias nemo praesentium obcaecati distinctio deleniti autem similique modi rem? Ex commodi est veritatis fugiat harum, beatae molestiae totam eius enim, incidunt autem labore accusamus quos perspiciatis provident iusto distinctio. Sequi porro excepturi iure laboriosam laudantium id, suscipit nemo molestiae harum eveniet? Ad, cupiditate tempore repudiandae soluta ex nostrum maiores nam quis dicta, sit rem. Nam odio error tenetur quia sapiente obcaecati voluptate reiciendis deserunt explicabo dicta nisi necessitatibus deleniti facilis vero aspernatur sit dolorum nihil odit cum, placeat impedit, fugiat iure. Nisi officia obcaecati quia totam dolorem ipsa in explicabo eos, saepe sed maiores vel unde, perferendis eum error ipsam. Vero nihil consequuntur ipsum! Commodi molestias obcaecati, unde nemo illo harum aliquid possimus sint atque minus soluta, magnam, nam iste fugit veniam temporibus? Enim accusamus suscipit ut fugiat iusto minima, facere libero quod culpa, nam, saepe nobis eos eaque placeat exercitationem! Nisi iure voluptate quis repudiandae doloremque laborum similique omnis, eum vel beatae, magni nam corporis dignissimos. Vero ipsa ipsam praesentium maxime doloribus architecto, velit sunt voluptates. Dolores expedita exercitationem, unde odit fuga quaerat eligendi dicta ipsum aliquid culpa veritatis tenetur officia quibusdam dolorem distinctio earum asperiores accusantium saepe sit similique pariatur! Tempora, alias laboriosam enim nostrum quisquam ipsam dolore fugit aperiam! Iure eaque blanditiis error, labore at deserunt quisquam obcaecati maiores, quod optio ratione distinctio?
 `,
   }
 
@@ -94,8 +124,6 @@ const onLoaded = () => {
   const startTimeMinutes = parseInt(
     window.localStorage.getItem('startTime') || 0,
   )
-
-  console.log(startTimeMinutes)
 
   let timeDurationMinutes = startTimeMinutes
 
@@ -121,9 +149,13 @@ const onLoaded = () => {
     const popup = document.querySelector(`[data-popup="${popupName}"]`)
 
     if (popupContentId) {
-      const popupContent = popup.querySelector('.popup__content')
+      const popupContentDescription = popup.querySelector(
+        '.popup__content .description',
+      )
 
-      popupContent.innerHTML = marked.parse(popupsContent[popupContentId])
+      popupContentDescription.innerHTML = marked.parse(
+        popupsContent[popupContentId],
+      )
     }
 
     popup.classList.add('popup--show')
@@ -136,8 +168,6 @@ const onLoaded = () => {
 
     const popupName = target.dataset.popupName
     const popupContentId = target.dataset.popupContentId
-
-    console.log(popupContentId)
     openPopup(popupName, popupContentId)
   }
 
@@ -197,6 +227,10 @@ const onLoaded = () => {
   listButtonPopupClose.forEach((buttonPopupClose) => {
     buttonPopupClose.addEventListener('click', onClickButtonPopupClose)
   })
+
+  const closePopups = () => {
+    document.querySelector('.popup--show').classList.remove('popup--show')
+  }
 
   // dropdown
   const listDropdownToggles = document.querySelectorAll('.dropdown__toggle')
@@ -291,7 +325,7 @@ const onLoaded = () => {
 
     const prevOperationId = +operation.dataset.operationId - 1
 
-    operation.classList.remove('operation--active')
+    operation.classList.remove('operation--current')
 
     const operationPrev = document.querySelector(
       `[data-operation-id="${prevOperationId}"]`,
@@ -300,7 +334,7 @@ const onLoaded = () => {
     operationPrev.classList.remove('operation--complete')
     operationPrev.querySelector('.operation__body').hidden = false
 
-    operationPrev.classList.add('operation--active')
+    operationPrev.classList.add('operation--current')
   }
 
   listButtonPrev.forEach((button) => {
@@ -316,14 +350,20 @@ const onLoaded = () => {
     const nextOperationId = +operation.dataset.operationId + 1
 
     if (nextOperationId < countOperations) {
-      operation.classList.remove('operation--active')
+      operation.classList.remove('operation--current')
       operation.classList.add('operation--complete')
       operation.querySelector('.operation__body').hidden = true
 
       document
         .querySelector(`[data-operation-id="${nextOperationId}"]`)
-        .classList.add('operation--active')
+        .classList.add('operation--current')
     } else {
+      operation.classList.remove('operation--current')
+      operation.classList.add('operation--complete')
+      operation.querySelector('.operation__body').hidden = true
+
+      document.querySelector('[data-show="task-complete"]').hidden = false
+
       openPopup('task-complete')
     }
   }
@@ -389,7 +429,7 @@ const onLoaded = () => {
 
   const onClickOperation = (event) => {
     // если не кликнули по ДАЛЕЕ
-    if (event.target.matches('button.next')) return
+    if (event.target.matches('button[data-action="next"]')) return
 
     if (event.currentTarget.classList.contains('operation--complete')) {
       event.currentTarget.querySelector('.operation__body').hidden =
@@ -402,6 +442,22 @@ const onLoaded = () => {
   })
 
   // END .operation
+
+  // check-task
+
+  const buttonCheckTask = document.querySelector('[data-action="check-task"]')
+
+  const onClickCheckTask = () => {
+    closePopups()
+
+    document.querySelectorAll('.operation__body').forEach((item) => {
+      item.hidden = false
+    })
+  }
+
+  buttonCheckTask.addEventListener('click', onClickCheckTask)
+
+  // END check-task
 
   continueStepDuration()
 }

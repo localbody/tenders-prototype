@@ -12,21 +12,21 @@
       <div class="popup__body">
         <button class="close"></button>
         <div class="popup__wrapper">
-          <div class="popup__content"></div>
-          <div class="block">
-            <div class="checkbox h1">
-              <input type="checkbox" name="" id="want-stop-task" />
-              <label for="want-stop-task">задачу выполнить невозможно</label>
-            </div>
+          <div class="popup__content">
+            <div class="description"></div>
+            <div class="block">
+              <div class="checkbox h1">
+                <input type="checkbox" name="" id="want-stop-task" />
+                <label for="want-stop-task">задачу выполнить невозможно</label>
+              </div>
 
-            <div class="grid" id="resume-want-stop-task" hidden>
-              <fieldset>
-                <legend>укажите причину</legend>
-                <textarea name="" id="" rows="5"></textarea>
-              </fieldset>
-              <button class="button stop-task">
-                Прервать выполнение задачи
-              </button>
+              <div class="grid" id="resume-want-stop-task" hidden>
+                <fieldset>
+                  <legend>укажите причину</legend>
+                  <textarea name="" id="" rows="5"></textarea>
+                </fieldset>
+                <button class="button--red">Прервать выполнение задачи</button>
+              </div>
             </div>
           </div>
         </div>
@@ -42,7 +42,9 @@
               <h1>
                 Задача: "Изучение Заявки (запрос для рассылки)" выполнена!
               </h1>
-              <button class="next">Перейти к следующей задаче</button>
+              <button data-action="check-task" class="button--blue">
+                Перейти к проверке
+              </button>
             </div>
           </div>
         </div>
@@ -102,161 +104,12 @@
 
           <div
             data-operation-id="0"
-            class="block shadow operation operation--active"
+            class="block shadow operation operation--current"
           >
-            <h2 class="operation__title">Обязательное название операции</h2>
-            <div class="operation__body">
-              <div class="operation__content">
-                <div class="columns">
-                  <fieldset>
-                    <legend>Поле для ввода</legend>
-                    <input type="text" name="" id="text-field1" />
-                  </fieldset>
-
-                  <fieldset>
-                    <legend>Введите число</legend>
-                    <input type="number" name="" id="" />
-                  </fieldset>
-
-                  <fieldset>
-                    <legend>Вы понимаете значение "слова"?</legend>
-                    <div class="radiobox">
-                      <input type="radio" name="isUnderstanding" id="value1" />
-                      <label for="value1">понимаю</label>
-                    </div>
-                    <div class="radiobox">
-                      <input type="radio" name="isUnderstanding" id="value2" />
-                      <label for="value2">не понимаю</label>
-                    </div>
-                    <div class="radiobox">
-                      <input type="radio" name="isUnderstanding" id="value3" />
-                      <label for="value3">плохо понимаю</label>
-                    </div>
-                    <div class="radiobox">
-                      <input type="radio" name="isUnderstanding" id="value4" />
-                      <label for="value4"
-                        >не понимаю, но зачем я искал синонимы?</label
-                      >
-                    </div>
-                  </fieldset>
-
-                  <fieldset>
-                    <legend>Какая погода за окном?</legend>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        name="weather"
-                        id="weather-value1"
-                      />
-                      <label for="weather-value1">Тепло</label>
-                    </div>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        name="weather"
-                        id="weather-value2"
-                      />
-                      <label for="weather-value2">Прохладно</label>
-                    </div>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        name="weather"
-                        id="weather-value3"
-                      />
-                      <label for="weather-value3">Дождь</label>
-                    </div>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        name="weather"
-                        id="weather-value4"
-                      />
-                      <label for="weather-value4">Снег</label>
-                    </div>
-                  </fieldset>
-
-                  <fieldset>
-                    <legend>Укажите причину:</legend>
-                    <textarea name="" id="" rows="5">
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui saepe reprehenderit adipisci nesciunt blanditiis dolorum quibusdam velit, corporis explicabo rem deserunt impedit nostrum, sequi temporibus id minima natus cumque consequuntur maxime perspiciatis maiores fuga asperiores aut corrupti? Fugit repellendus quisquam distinctio maxime qui quam ut, quidem, non quo quis assumenda. Mollitia ipsum autem, et suscipit quibusdam minima iste tenetur omnis ex sequi, dolor veniam.
-                    </textarea>
-                  </fieldset>
-                </div>
-              </div>
-              <div class="operation__buttons flex--space-between">
-                <button class="prev" data-action="prev">вернуться</button>
-                <button class="next" data-action="next">далее</button>
-              </div>
-            </div>
-          </div>
-
-          <div data-operation-id="1" class="block shadow operation">
-            <h2 class="operation__title">Операция с другим названием</h2>
-            <div class="operation__body">
-              <div class="operation__content">
-                <div class="columns">
-                  <fieldset>
-                    <legend>Вы понимаете значение "слова"?</legend>
-                    <div class="radiobox">
-                      <input type="radio" name="isUnderstanding" id="value01" />
-                      <label for="value01">понимаю</label>
-                    </div>
-                    <div class="radiobox">
-                      <input type="radio" name="isUnderstanding" id="value02" />
-                      <label for="value02">не понимаю</label>
-                    </div>
-                  </fieldset>
-
-                  <fieldset>
-                    <legend>Какая погода за окном?</legend>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        name="weather"
-                        id="weather-value01"
-                      />
-                      <label for="weather-value01">Тепло</label>
-                    </div>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        name="weather"
-                        id="weather-value02"
-                      />
-                      <label for="weather-value02">Прохладно</label>
-                    </div>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        name="weather"
-                        id="weather-value03"
-                      />
-                      <label for="weather-value03">Дождь</label>
-                    </div>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        name="weather"
-                        id="weather-value04"
-                      />
-                      <label for="weather-value04">Снег</label>
-                    </div>
-                  </fieldset>
-                </div>
-              </div>
-              <div class="operation__buttons flex--space-between">
-                <button class="prev" data-action="prev">вернуться</button>
-                <button class="next" data-action="next">далее</button>
-              </div>
-            </div>
-          </div>
-
-          <div data-operation-id="2" class="block shadow operation">
             <h2 class="operation__title">
-              найдите <b>3</b> синонима слова "<b id="synonym"
-                >?synonym из url</b
-              >" и вставьте их в поля ниже.
+              найдите <b>по 3</b> синонима для "<b data-replacement="phrase"
+                >?phrase из url</b
+              >"
             </h2>
 
             <div class="operation__body">
@@ -266,7 +119,7 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui saepe reprehenderi
                     <button
                       data-step="current"
                       data-action="open-url"
-                      data-url="https://sinonim.org/s/%synonym%"
+                      data-url="https://sinonim.org/s/%phrase%"
                     >
                       синонимы на sinonim.org
                     </button>
@@ -300,7 +153,8 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui saepe reprehenderi
                     <button
                       data-step="current"
                       data-action="open-url"
-                      data-url="https://text.ru/synonym/%synonym%"
+                      data-url="about:blank"
+                      data-post-json='{"url":"https://text.ru/synonym","params":{"search_synonym":"эпоксидная смола"}}'
                     >
                       синонимы на text.ru
                     </button>
@@ -333,7 +187,7 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui saepe reprehenderi
                     <button
                       data-step="current"
                       data-action="open-url"
-                      data-url="https://kartaslov.ru/синонимы-к-слову/%synonym%"
+                      data-url="https://kartaslov.ru/синонимы-к-слову/%phrase%"
                     >
                       синонимы на kartaslov.ru
                     </button>
@@ -365,12 +219,12 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui saepe reprehenderi
               </div>
               <div class="operation__buttons flex--space-between">
                 <button class="prev" data-action="prev">вернуться</button>
-                <button class="next" data-action="next">далее</button>
+                <button class="button--blue" data-action="next">далее</button>
               </div>
             </div>
           </div>
 
-          <div data-operation-id="3" class="block shadow operation">
+          <div data-operation-id="1" class="block shadow operation">
             <h2 class="operation__title">
               отметьте <b>3</b> самых подходящих синонима или укажите свои
             </h2>
@@ -501,314 +355,326 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui saepe reprehenderi
               </div>
               <div class="operation__buttons flex--space-between">
                 <button class="prev" data-action="prev">вернуться</button>
-                <button class="next" data-action="next">далее</button>
+                <button class="button--blue" data-action="next">далее</button>
+              </div>
+            </div>
+          </div>
+
+          <div data-operation-id="2" class="block shadow operation">
+            <h2 class="operation__title">
+              найдите переводы
+              <b>"<span data-replacement="phrase"></span>"</b> и синонимов на
+              <b>английский</b>
+            </h2>
+
+            <div class="operation__body">
+              <div class="operation__content">
+                <div class="columns">
+                  <div class="width--full block shadow step">
+                    <div class="flex--space-between">
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=en&text=%phrase%"
+                      >
+                        <span
+                          >перевод "<span data-replacement="phrase"></span
+                          >"</span
+                        >
+                      </button>
+                    </div>
+
+                    <div class="field field--input-paste">
+                      <input class="text" type="text" value="" />
+                      <button class="button--flat" data-action="paste"></button>
+                    </div>
+                  </div>
+
+                  <div class="width--full block shadow step">
+                    <div class="flex--space-between">
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод синонима
+                      </button>
+                    </div>
+
+                    <div class="field field--input-paste">
+                      <input class="text" type="text" value="" />
+                      <button class="button--flat" data-action="paste"></button>
+                    </div>
+                  </div>
+
+                  <div class="width--full block shadow step">
+                    <div class="flex--space-between">
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод синонима
+                      </button>
+                    </div>
+
+                    <div class="field field--input-paste">
+                      <input class="text" type="text" value="" />
+                      <button class="button--flat" data-action="paste"></button>
+                    </div>
+                  </div>
+
+                  <div class="width--full block shadow step">
+                    <div class="flex--space-between">
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод синонима
+                      </button>
+                    </div>
+
+                    <div class="field field--input-paste">
+                      <input class="text" type="text" value="" />
+                      <button class="button--flat" data-action="paste"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="operation__buttons flex--space-between">
+                <button class="prev" data-action="prev">вернуться</button>
+                <button class="button--blue" data-action="next">далее</button>
+              </div>
+            </div>
+          </div>
+
+          <div data-operation-id="3" class="block shadow operation">
+            <h2 class="operation__title">
+              найдите переводы "<span data-replacement="phrase"></span>" и
+              синонимов на <b>китайский</b>
+            </h2>
+
+            <div class="operation__body">
+              <div class="operation__content">
+                <div class="columns">
+                  <div class="width--full block shadow step">
+                    <span class="legend"
+                      >перевод "<span data-replacement="phrase"></span>"</span
+                    >
+                    <div class="flex--space-between">
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=zh-CN&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
+                      >
+                        перевод Google
+                      </button>
+
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=zh&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод Yandex
+                      </button>
+
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод Promt
+                      </button>
+                    </div>
+
+                    <div class="field field--input-paste">
+                      <input class="text" type="text" value="" />
+                      <button class="button--flat" data-action="paste"></button>
+                    </div>
+                  </div>
+
+                  <div class="width--full block shadow step">
+                    <span class="legend">перевод "синонима"</span>
+                    <div class="flex--space-between">
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=zh-CN&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
+                      >
+                        перевод Google
+                      </button>
+
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=zh&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод Yandex
+                      </button>
+
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод Promt
+                      </button>
+                    </div>
+
+                    <div class="field field--input-paste">
+                      <input class="text" type="text" value="" />
+                      <button class="button--flat" data-action="paste"></button>
+                    </div>
+                  </div>
+
+                  <div class="width--full block shadow step">
+                    <span class="legend">перевод "синонима"</span>
+                    <div class="flex--space-between">
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=zh-CN&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
+                      >
+                        перевод Google
+                      </button>
+
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=zh&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод Yandex
+                      </button>
+
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод Promt
+                      </button>
+                    </div>
+
+                    <div class="field field--input-paste">
+                      <input class="text" type="text" value="" />
+                      <button class="button--flat" data-action="paste"></button>
+                    </div>
+                  </div>
+
+                  <div class="width--full block shadow step">
+                    <span class="legend">перевод "синонима"</span>
+                    <div class="flex--space-between">
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=zh-CN&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
+                      >
+                        перевод Google
+                      </button>
+
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=zh&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод Yandex
+                      </button>
+
+                      <button
+                        data-step="current"
+                        data-action="open-url"
+                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                      >
+                        перевод Promt
+                      </button>
+                    </div>
+
+                    <div class="field field--input-paste">
+                      <input class="text" type="text" value="" />
+                      <button class="button--flat" data-action="paste"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="operation__buttons flex--space-between">
+                <button class="prev" data-action="prev">вернуться</button>
+                <button class="button--blue" data-action="next">далее</button>
               </div>
             </div>
           </div>
 
           <div data-operation-id="4" class="block shadow operation">
             <h2 class="operation__title">
-              найдите переводы "слова" и синонимов на <b>английский</b>
+              проверка понимания
+              <b>"<span data-replacement="phrase"></span>"</b>
             </h2>
 
             <div class="operation__body">
               <div class="operation__content">
-                <div class="columns">
-                  <div class="width--full block shadow step">
-                    <span class="legend">перевод "слова"</span>
+                <div class="block shadow">
+                  <fieldset>
+                    <legend>
+                      проверьте понимание значения "<span
+                        data-replacement="phrase"
+                      ></span
+                      >"
+                    </legend>
+
                     <div class="flex--space-between">
                       <button
                         data-step="current"
                         data-action="open-url"
-                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
+                        data-url="https://ru.wikipedia.org/wiki/%phrase%"
                       >
-                        перевод Google
+                        <span>прочитать на Wikipedia</span>
                       </button>
 
                       <button
                         data-step="current"
                         data-action="open-url"
-                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                        data-url="https://www.youtube.com/results?search_query=%phrase%"
                       >
-                        перевод Yandex
+                        <span>смотреть на Youtube</span>
                       </button>
 
                       <button
                         data-step="current"
                         data-action="open-url"
-                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
+                        data-url="https://yandex.by/search/?text=%phrase%"
                       >
-                        перевод Promt
+                        <span>найти на Yandex</span>
                       </button>
                     </div>
-
-                    <div class="field field--input-paste">
-                      <input class="text" type="text" value="" />
-                      <button class="button--flat" data-action="paste"></button>
-                    </div>
-                  </div>
-
-                  <div class="width--full block shadow step">
-                    <span class="legend">перевод "синонима"</span>
-                    <div class="flex--space-between">
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
-                      >
-                        перевод Google
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Yandex
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Promt
-                      </button>
-                    </div>
-
-                    <div class="field field--input-paste">
-                      <input class="text" type="text" value="" />
-                      <button class="button--flat" data-action="paste"></button>
-                    </div>
-                  </div>
-
-                  <div class="width--full block shadow step">
-                    <span class="legend">перевод "синонима"</span>
-                    <div class="flex--space-between">
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
-                      >
-                        перевод Google
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Yandex
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Promt
-                      </button>
-                    </div>
-
-                    <div class="field field--input-paste">
-                      <input class="text" type="text" value="" />
-                      <button class="button--flat" data-action="paste"></button>
-                    </div>
-                  </div>
-
-                  <div class="width--full block shadow step">
-                    <span class="legend">перевод "синонима"</span>
-                    <div class="flex--space-between">
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
-                      >
-                        перевод Google
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=en&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Yandex
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Promt
-                      </button>
-                    </div>
-
-                    <div class="field field--input-paste">
-                      <input class="text" type="text" value="" />
-                      <button class="button--flat" data-action="paste"></button>
-                    </div>
+                  </fieldset>
+                </div>
+                <div class="block shadow">
+                  <div class="checkbox">
+                    <input
+                      type="checkbox"
+                      name="isUnderstoodPhrase"
+                      id="isUnderstoodPhrase-yes"
+                    />
+                    <label for="isUnderstoodPhrase-yes"
+                      >я понимаю значение
+                      <b>"<span data-replacement="phrase"></span>"</b></label
+                    >
                   </div>
                 </div>
               </div>
               <div class="operation__buttons flex--space-between">
                 <button class="prev" data-action="prev">вернуться</button>
-                <button class="next" data-action="next">далее</button>
+                <button class="button--blue" data-action="next">далее</button>
               </div>
             </div>
           </div>
 
-          <div data-operation-id="5" class="block shadow operation">
-            <h2 class="operation__title">
-              найдите переводы "слова" и синонимов на <b>китайский</b>
-            </h2>
+          <div data-show="task-complete" class="flex--space-between" hidden>
+            <button class="button">вернуться</button>
 
-            <div class="operation__body">
-              <div class="operation__content">
-                <div class="columns">
-                  <div class="width--full block shadow step">
-                    <span class="legend">перевод "слова"</span>
-                    <div class="flex--space-between">
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=zh-CN&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
-                      >
-                        перевод Google
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=zh&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Yandex
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Promt
-                      </button>
-                    </div>
-
-                    <div class="field field--input-paste">
-                      <input class="text" type="text" value="" />
-                      <button class="button--flat" data-action="paste"></button>
-                    </div>
-                  </div>
-
-                  <div class="width--full block shadow step">
-                    <span class="legend">перевод "синонима"</span>
-                    <div class="flex--space-between">
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=zh-CN&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
-                      >
-                        перевод Google
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=zh&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Yandex
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Promt
-                      </button>
-                    </div>
-
-                    <div class="field field--input-paste">
-                      <input class="text" type="text" value="" />
-                      <button class="button--flat" data-action="paste"></button>
-                    </div>
-                  </div>
-
-                  <div class="width--full block shadow step">
-                    <span class="legend">перевод "синонима"</span>
-                    <div class="flex--space-between">
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=zh-CN&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
-                      >
-                        перевод Google
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=zh&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Yandex
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Promt
-                      </button>
-                    </div>
-
-                    <div class="field field--input-paste">
-                      <input class="text" type="text" value="" />
-                      <button class="button--flat" data-action="paste"></button>
-                    </div>
-                  </div>
-
-                  <div class="width--full block shadow step">
-                    <span class="legend">перевод "синонима"</span>
-                    <div class="flex--space-between">
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.google.by/?hl=ru&sl=ru&tl=zh-CN&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&op=translate"
-                      >
-                        перевод Google
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://translate.yandex.com/?source_lang=ru&target_lang=zh&text=%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Yandex
-                      </button>
-
-                      <button
-                        data-step="current"
-                        data-action="open-url"
-                        data-url="https://www.translate.ru/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE"
-                      >
-                        перевод Promt
-                      </button>
-                    </div>
-
-                    <div class="field field--input-paste">
-                      <input class="text" type="text" value="" />
-                      <button class="button--flat" data-action="paste"></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="operation__buttons flex--space-between">
-                <button class="prev" data-action="prev">вернуться</button>
-                <button class="next" data-action="next">далее</button>
-              </div>
-            </div>
+            <button class="button--blue button--big">задача проверена</button>
           </div>
+
           <!--  -->
         </div>
       </div>

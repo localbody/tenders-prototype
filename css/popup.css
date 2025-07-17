@@ -40,4 +40,13 @@
 .popup__content {
   max-height: 80vh;
   overflow-y: auto;
+  position: relative;
+  display: grid;
+  gap: 1em;
+}
+
+.popup__content .block {
+  position: sticky;
+  bottom: 0;
+  /* margin-top: 2em; */
 }

@@ -41,6 +41,7 @@ fieldset legend {
   background-color: var(--bg-grey-light);
   padding: 0 0.5em;
   width: fit-content;
+  border-radius: 0.25em;
 }
 
 fieldset legend {
@@ -320,4 +321,8 @@ input.error {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+[data-show='task-complete'] {
+  margin-bottom: 3em;
 }

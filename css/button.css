@@ -31,15 +31,18 @@ button[data-action='open-url']::after {
   box-shadow: none;
 }
 
-button.next {
-  padding: 0.5em 2em;
-  background-color: #3498db;
+.button--blue {
+  background-color: var(--bg-blue);
   color: var(--text-white);
 }
 
-button.stop-task {
-  background-color: tomato;
-  color: white;
+.button--red {
+  background-color: var(--bg-red);
+  color: var(--text-white);
+}
+
+.button--big {
+  font-size: 1.5em;
 }
 
 .button--info {
@@ -51,9 +54,9 @@ button.stop-task {
   font-size: 0.75em;
   position: absolute;
   top: -0.25em;
-  right: -1em;
+  right: 0;
   color: var(--text-white);
-  background-color: var(--bg-green);
+  /* background-color: var(--bg-green); */
   border-radius: 2em;
   padding: 0.1em;
 }
